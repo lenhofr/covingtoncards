@@ -24,11 +24,15 @@ simplest thing that renders ten pages from a data file.
 `Poker Index.dc.html` is the design document. It is a review artifact containing several
 options; **only these two are approved**:
 
-| id in the file | Screen | Status |
+| id in the file | What it is | Status |
 | --- | --- | --- |
-| `2a` | Index — felt grid | **Build this** |
+| `2a` | Index — felt grid: page frame, header, suit key, grid | **Build this**, but replace its tile with `4a` |
+| `4a` | The index tile as a real playing card — corner index block | **Build this** — supersedes the tile in `2a` |
 | `3a` | Game screen — mobile | **Build this** |
-| `1a`, `1b`, `1c`, `3b` | earlier explorations | Ignore |
+| `1a`, `1b`, `1c`, `2a`'s own tile, `3b`, `4b`, `4c` | earlier explorations | Ignore |
+
+The index is **`2a`'s page with `4a`'s tiles in the grid**. `2a` is the approved surface,
+header and grid; `4a` is the approved card. `2a`'s flat ivory tile is superseded.
 
 Open the file in a browser and scroll: turn 3 is at the top, then turn 2, then turn 1. Each
 option is labelled with its id.
@@ -62,6 +66,9 @@ Land here, scan ten games, tap one when it's your deal.
   past the chip).
 - Card grid: `display:grid; grid-template-columns:repeat(auto-fill, minmax(240px,1fr)); gap:16px`.
   At 1120px this lands as 4 columns; it degrades to 3/2/1 on its own.
+- Grid children are the playing cards specified below. They hold a **fixed 2.5 × 3.5 aspect**
+  (`aspect-ratio: 5 / 7`) — at the 240px track that is 240 × 336. Do not let them stretch:
+  set `aspect-ratio` rather than a hard height so wider tracks scale the whole card.
 
 ### Components
 
@@ -80,18 +87,43 @@ Copy: "Pick one when it's your deal. Most of these were invented within a mile o
 the label. Four entries: ♠ Stud · ♦ Community cards · ♥ Down to luck · ♣ Table game.
 Glyph colors: `#f0ece1` for ♠/♣, `#e08b87` for ♥/♦ (a lightened red so it clears contrast on felt).
 
-**Game card** (×10) —
-- `background: linear-gradient(160deg, #f4f0e4, #e2dcca)`, `border-radius:10px`,
-  `padding:16px 18px 18px`, `box-shadow: 0 6px 16px rgba(0,0,0,.4)`.
-- Top row: `display:flex; justify-content:space-between; align-items:flex-start`.
-  - Family label — Inter 500, 9px, `letter-spacing:.18em`, uppercase, `#7a6f52`.
-  - Suit glyph — 16px, `#231a08` for ♠/♣, `#a8332f` for ♥/♦.
-- Title — Bodoni Moda 500, 23px, `#1b1a16`, `margin:6px 0 8px`, `line-height:1.05`.
-- Rule line — 12.5px/1.55 Inter, `#453f33`, `text-wrap:pretty`.
-- Meta — player count, `margin-top:12px`, 11px Inter 400, `#7a6f52`.
-- **Covington original variant**: add `outline: 2px solid #c9a227` and append
-  `· Covington original` to the family label. Currently on Krogering only — the client will
-  confirm which games qualify, so drive it off a boolean in the data, not a hardcoded slug.
+**Game card — the playing card** (×10, option `4a`)
+
+A real card, not a content tile. Three stacked parts inside a column flex: corner index,
+centered face, mirrored corner index.
+
+- Shell: `width:240px` (or grid track), `aspect-ratio: 5 / 7`,
+  `background: linear-gradient(165deg, #fbf8f0, #eae4d2)`, `border-radius:12px`,
+  `box-shadow: 0 6px 16px rgba(0,0,0,.45)`, `padding:12px`,
+  `display:flex; flex-direction:column`.
+  Note the stock is **lighter** than `2a`'s tile — `#fbf8f0 → #eae4d2`, not `#f4f0e4 → #e2dcca`.
+- **Corner index** (top-left): `display:flex; flex-direction:column; align-items:center;`
+  `line-height:.95; width:26px`.
+  - Rank — Bodoni Moda 500, **26px**. See *Rank glyph* below.
+  - Suit — 16px, directly beneath, no gap (the `.95` line-height does the tightening).
+  - Both take the suit color: `#231a08` for ♠/♣, `#a8332f` for ♥/♦. Rank and suit always match.
+- **Face** (middle): `flex:1; display:flex; flex-direction:column; justify-content:center;`
+  `text-align:center; padding:0 6px`.
+  - Title — Bodoni Moda 500, **25px**, `#1b1a16`, `line-height:1.05`, `margin:0`.
+    Break long names onto two lines deliberately (`Five-Card` / `Stud`) — do not let them wrap ragged.
+  - Brass rule — `width:40px; height:1px; background:#c9a227; margin:12px auto`.
+  - Rule line — 12px/1.5 Inter, `#453f33`, `text-wrap:pretty`, `margin:0`.
+  - Meta — `margin-top:14px`, Inter 500 9px, `letter-spacing:.18em`, uppercase, `#7a6f52`.
+    Format: `Family · min–max` e.g. `STUD · 2–10`.
+- **Mirrored corner index** (bottom-right): identical markup to the top-left, plus
+  `align-self:flex-end; transform: rotate(180deg)`.
+- **Covington original variant**: `outline: 2px solid #c9a227` on the shell, and the meta line
+  becomes `Stud · Covington original`. Drive it off the `covingtonOriginal` boolean in the data,
+  not a hardcoded slug — the client is still confirming which games qualify.
+
+#### Rank glyph
+
+Each game gets a one-character "rank" in its corner index, chosen to mean something about the
+game rather than to number the list. Shown in the mock: `5` for Five-Card Stud, `Q` for Chase
+the Queen. The rest are **not yet assigned** — get them from the client, or propose them
+(`7` seven-card stud, `K` screw your neighbor for the untouchable king, `J` liar's poker, and so
+on). Store it per game as `rank` in the data; render whatever character is there. If a game has
+no sensible rank, fall back to the suit glyph alone, centered in the 26px column.
 
 ### Suit encoding (do not treat as decoration)
 
@@ -107,8 +139,9 @@ grid can be scanned by shape. The mapping lives in `games.json > families`:
 
 ### States (to add in implementation — the mock is static)
 
-- **Hover** on a card: lift it. `transform: translateY(-2px)`,
-  `box-shadow: 0 10px 22px rgba(0,0,0,.5)`, 140ms `ease-out`. Cursor `pointer`.
+- **Hover** on a card: lift and tilt it slightly, like a card being picked off the felt.
+  `transform: translateY(-4px) rotate(-1deg)`, `box-shadow: 0 12px 26px rgba(0,0,0,.55)`,
+  160ms `ease-out`, `transform-origin: bottom center`. Cursor `pointer`.
 - **Focus-visible**: `outline: 2px solid #c9a227; outline-offset: 3px`. Never the browser default.
 - **Active/pressed**: `transform: translateY(0)`, shadow back to rest.
 - Each card is one link (`<a>`) wrapping the whole card → `/games/<slug>`.
@@ -129,7 +162,9 @@ bottom action bar is fixed to the bottom of the viewport.
    - Back button: **44×44px** circle, `border:1px solid rgba(201,162,39,.55)`, glyph `‹` 20px `#e8cf7a`.
      44px is the minimum hit target — do not shrink it.
    - Label `All games` — Inter 500 10px, `letter-spacing:.18em`, uppercase, `rgba(240,236,225,.5)`.
-3. **Hero card** — the index card, grown. `margin:0 16px`, ivory gradient as above,
+3. **Hero card** — the index card, grown. It keeps the *flat* hero treatment below (title
+   left-aligned, no corner index, no fixed aspect) — the corner-index playing card is the index
+   tile only. `margin:0 16px`, `linear-gradient(160deg, #f4f0e4, #e0dac6)`,
    `border-radius:12px`, `padding:18px 20px 20px`, `box-shadow:0 10px 26px rgba(0,0,0,.5)`,
    plus `outline:2px solid #c9a227` when the game is a Covington original.
    - Family label + suit glyph, same treatment as the index card (suit 18px here).
@@ -213,9 +248,10 @@ the client's requested card-room colors. Nocturne's own stylesheet is in this bu
 | `--brass-light` | `#e8cf7a` | brass gradient top, accent values, icon glyphs |
 | `--brass-bright` | `#f2dd97` | hover only |
 | `--ink-on-brass` | `#231a08` | text on brass, dark suit glyphs |
-| `--card-stock-1` | `#f4f0e4` | card gradient start |
-| `--card-stock-2` | `#e2dcca` | card gradient end (index) |
-| `--card-stock-3` | `#e0dac6` | card gradient end (hero card) |
+| `--card-stock-1` | `#fbf8f0` | playing-card gradient start (index) |
+| `--card-stock-2` | `#eae4d2` | playing-card gradient end (index) |
+| `--hero-stock-1` | `#f4f0e4` | hero card gradient start (game screen) |
+| `--hero-stock-2` | `#e0dac6` | hero card gradient end (game screen) |
 | `--card-ink` | `#1b1a16` | game titles |
 | `--card-body` | `#453f33` | rule text on card stock |
 | `--card-muted` | `#7a6f52` | labels / meta on card stock |
@@ -245,9 +281,10 @@ Contrast: all body copy above clears 4.5:1 on its ground. `#c9a227` on felt is u
 ### Spacing, radius, elevation
 
 - Spacing steps in use: 2, 4, 6, 8, 10, 11, 12, 14, 16, 18, 20, 22, 26, 34, 38, 40.
-- Radius: `10px` index card · `12px` hero card · `18px` felt surface · `34px` phone shell (mock
+- Radius: `12px` playing card and hero card · `18px` felt surface · `34px` phone shell (mock
   chrome only) · `999px` pills.
-- Shadows: `0 6px 16px rgba(0,0,0,.4)` index card · `0 10px 26px rgba(0,0,0,.5)` hero card ·
+- Aspect: `5 / 7` on every index card. This is the one hard proportion in the design.
+- Shadows: `0 6px 16px rgba(0,0,0,.45)` playing card · `0 10px 26px rgba(0,0,0,.5)` hero card ·
   `0 2px 6px rgba(0,0,0,.5)` chip · `0 4px 12px rgba(0,0,0,.45)` primary button.
   Do not stack more than one.
 
@@ -265,6 +302,7 @@ Contrast: all body copy above clears 4.5:1 on its ground. `#c9a227` on felt is u
 1. Correct rule text for all ten games, and the real numbered deal for Krogering.
 2. Which games are genuinely Covington originals (the brass outline + label).
 3. What "Call this game" should do.
+5. The rank glyph for each of the ten games (see *Rank glyph* above) — only 5 and Q are set.
 4. Whether the ♠/♦/♥/♣ family key stays (it was decorative in earlier rounds and was given
    meaning in `2a`).
 
@@ -272,7 +310,7 @@ Contrast: all body copy above clears 4.5:1 on its ground. `#c9a227` on felt is u
 
 | File | What it is |
 | --- | --- |
-| `Poker Index.dc.html` | The design document. Build `2a` (index) and `3a` (mobile game screen); ignore the rest. Open it in a browser. |
-| `games.json` | All ten games, the family→suit mapping, and Krogering's full detail content. Draft rule copy. |
+| `Poker Index.dc.html` | The design document. Build `2a`'s page with `4a`'s tiles, plus `3a` (mobile game screen); ignore the rest. Open it in a browser — turn 4 is at the top. |
+| `games.json` | All ten games, the family→suit mapping, the `rank` field, and Krogering's full detail content. Draft rule copy. |
 | `nocturne-styles.css` | The Nocturne design system stylesheet the design's structure came from — reference for the spacing scale, radii, faded rule and focus-ring convention. Not required at runtime. |
 | `README.md` | This file. |
