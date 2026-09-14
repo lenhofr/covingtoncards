@@ -54,20 +54,31 @@ function renderSuitKeyEntry(glyph, colorClass, label) {
   return `<li><span class="suit-glyph on-felt ${colorClass}">&#${glyph};</span> ${esc(label)}</li>`;
 }
 
+function renderCornerIndex(game, colorClass, mirrored) {
+  // rank || rankProposed per games.json's _rankNote; falls back to the bare suit glyph
+  // when neither is set.
+  const rankChar = game.rank || game.rankProposed;
+  const family = FAMILIES[game.family];
+  const mirroredClass = mirrored ? ' card-index--mirrored' : '';
+  const rankHtml = rankChar ? `<span class="card-rank">${esc(rankChar)}</span>` : '';
+  return `<div class="card-index${mirroredClass} ${colorClass}">${rankHtml}<span class="suit-glyph">${family.suit}</span></div>`;
+}
+
 function renderIndex({ games }) {
   const cards = games
     .map((game) => {
-      const family = FAMILIES[game.family];
       const colorClass = SUIT_BLACK.has(game.family) ? 'suit-black' : 'suit-red';
       const originalClass = game.covingtonOriginal ? ' is-original' : '';
+      const titleHtml = game.titleLines.map(esc).join('<br>');
       return `      <a class="game-card${originalClass}" href="games/${game.slug}/">
-        <div class="game-card-top">
-          <span class="family-label">${esc(game.familyLabel)}</span>
-          <span class="suit-glyph on-card ${colorClass}">${family.suit}</span>
+        ${renderCornerIndex(game, colorClass, false)}
+        <div class="card-face">
+          <h2 class="card-title">${titleHtml}</h2>
+          <div class="card-divider"></div>
+          <p class="card-summary">${esc(game.summary)}</p>
+          <div class="card-meta">${esc(game.cardMeta)}</div>
         </div>
-        <h2 class="game-title">${esc(game.name)}</h2>
-        <p class="game-rule">${esc(game.summary)}</p>
-        <p class="game-meta">${esc(game.players)}</p>
+        ${renderCornerIndex(game, colorClass, true)}
       </a>`;
     })
     .join('\n');

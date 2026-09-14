@@ -1,10 +1,26 @@
 {
-  "_note": "Content used in the mockups. `family` drives the suit glyph (see README > Suit encoding). Rule text is draft copy written during design — verify against the real house rules before shipping. `covingtonOriginal` is a placeholder flag set only on Krogering.",
+  "_note": "Content used in the mockups. `family` drives the suit glyph, `rank` the corner-index glyph (see README > Screen 1). Rule text is draft copy written during design — verify against the real house rules before shipping. `covingtonOriginal` is a placeholder flag set only on Krogering.",
   "families": {
-    "stud":      { "label": "Stud",            "suit": "\u2660", "suitColor": "#231a08" },
-    "community": { "label": "Community",       "suit": "\u2666", "suitColor": "#a8332f" },
-    "luck":      { "label": "Down to luck",    "suit": "\u2665", "suitColor": "#a8332f" },
-    "table":     { "label": "Table game",      "suit": "\u2663", "suitColor": "#231a08" }
+    "stud": {
+      "label": "Stud",
+      "suit": "♠",
+      "suitColor": "#231a08"
+    },
+    "community": {
+      "label": "Community",
+      "suit": "♦",
+      "suitColor": "#a8332f"
+    },
+    "luck": {
+      "label": "Down to luck",
+      "suit": "♥",
+      "suitColor": "#a8332f"
+    },
+    "table": {
+      "label": "Table game",
+      "suit": "♣",
+      "suitColor": "#231a08"
+    }
   },
   "games": [
     {
@@ -12,43 +28,77 @@
       "name": "Five-Card Stud",
       "family": "stud",
       "familyLabel": "Stud",
-      "players": "2\u201310 players",
+      "players": "2–10 players",
       "summary": "One down, four up, a bet every street. No draw, no community, nowhere to hide.",
-      "covingtonOriginal": false
+      "covingtonOriginal": false,
+      "rank": "5",
+      "rankProposed": null,
+      "rankReason": "five cards dealt",
+      "titleLines": [
+        "Five-Card",
+        "Stud"
+      ],
+      "cardMeta": "Stud · 2–10"
     },
     {
       "slug": "seven-card-stud",
       "name": "Seven-Card Stud",
       "family": "stud",
       "familyLabel": "Stud",
-      "players": "2\u20138 players",
+      "players": "2–8 players",
       "summary": "Two down, four up, one down. Five bets, best five of seven. Arithmetic and nerve.",
-      "covingtonOriginal": false
+      "covingtonOriginal": false,
+      "rank": null,
+      "rankProposed": "7",
+      "rankReason": "seven cards dealt",
+      "titleLines": [
+        "Seven-Card",
+        "Stud"
+      ],
+      "cardMeta": "Stud · 2–8"
     },
     {
       "slug": "criss-cross",
       "name": "Criss Cross",
       "family": "community",
       "familyLabel": "Community",
-      "players": "3\u20137 players",
+      "players": "3–7 players",
       "summary": "Five community cards in a cross. Play the row or the column, never the middle twice.",
-      "covingtonOriginal": false
+      "covingtonOriginal": false,
+      "rank": null,
+      "rankProposed": "X",
+      "rankReason": "the cross",
+      "titleLines": [
+        "Criss",
+        "Cross"
+      ],
+      "cardMeta": "Community · 3–7"
     },
     {
       "slug": "krogering",
       "name": "Krogering",
       "family": "stud",
-      "familyLabel": "Stud \u00b7 Covington original",
+      "familyLabel": "Stud · Covington original",
       "alsoCalled": "also called low hold",
-      "players": "2\u20138 players",
-      "summary": "Seven-stud, but your lowest down card is wild \u2014 and so is every card of that rank in your hand. Named for the man who kept dealing it.",
+      "players": "2–8 players",
+      "summary": "Seven-stud, but your lowest down card is wild — and so is every card of that rank in your hand. Named for the man who kept dealing it.",
       "covingtonOriginal": true,
       "detail": {
-        "summary": "Seven-card stud, but your lowest down card is wild \u2014 and so is every other card of that rank in your hand. Catch a lower one on the last card and the whole hand rearranges itself.",
+        "summary": "Seven-card stud, but your lowest down card is wild — and so is every other card of that rank in your hand. Catch a lower one on the last card and the whole hand rearranges itself.",
         "stats": [
-          { "label": "Players", "value": "2\u20138" },
-          { "label": "Bets", "value": "Five" },
-          { "label": "Wild", "value": "Low hole", "accent": true }
+          {
+            "label": "Players",
+            "value": "2–8"
+          },
+          {
+            "label": "Bets",
+            "value": "Five"
+          },
+          {
+            "label": "Wild",
+            "value": "Low hole",
+            "accent": true
+          }
         ],
         "deal": [
           "Two down, then one up. Bet.",
@@ -57,61 +107,117 @@
           "Name your low hole card at showdown, not before. Best five of seven takes it."
         ],
         "houseNotes": "Aces are high, so an ace in the hole is worth nothing wild. Declare before the cards are read, or the hand plays as dealt."
-      }
+      },
+      "rank": null,
+      "rankProposed": "2",
+      "rankReason": "the deuce — lowest card runs wild",
+      "titleLines": [
+        "Krogering"
+      ],
+      "cardMeta": "Stud · Covington original"
     },
     {
       "slug": "chase-the-queen",
       "name": "Chase the Queen",
       "family": "stud",
       "familyLabel": "Stud",
-      "players": "3\u20138 players",
+      "players": "3–8 players",
       "summary": "A queen face up makes the next up card wild for everyone. A fresh queen retires the old one.",
-      "covingtonOriginal": false
+      "covingtonOriginal": false,
+      "rank": "Q",
+      "rankProposed": null,
+      "rankReason": "the queen",
+      "titleLines": [
+        "Chase the",
+        "Queen"
+      ],
+      "cardMeta": "Stud · 3–8"
     },
     {
       "slug": "screw-your-neighbor",
       "name": "Screw Your Neighbor",
       "family": "table",
       "familyLabel": "Table game",
-      "players": "4\u20139 players",
+      "players": "4–9 players",
       "summary": "One card, three lives. Keep it or trade left. Lowest card loses a life; a king can't be taken.",
-      "covingtonOriginal": false
+      "covingtonOriginal": false,
+      "rank": null,
+      "rankProposed": "K",
+      "rankReason": "a king in hand cannot be taken",
+      "titleLines": [
+        "Screw Your",
+        "Neighbor"
+      ],
+      "cardMeta": "Table game · 4–9"
     },
     {
       "slug": "liars-poker",
       "name": "Liar's Poker",
       "family": "table",
-      "familyLabel": "Table game \u00b7 no deck",
-      "players": "3\u20136 players",
+      "familyLabel": "Table game · no deck",
+      "players": "3–6 players",
       "summary": "Bid on the digits in a dollar bill's serial number. Call the bluff and lay the bills out.",
-      "covingtonOriginal": false
+      "covingtonOriginal": false,
+      "rank": null,
+      "rankProposed": "J",
+      "rankReason": "the jack, for the bluff",
+      "titleLines": [
+        "Liar's",
+        "Poker"
+      ],
+      "cardMeta": "Table game · 3–6"
     },
     {
       "slug": "beat-charlie",
       "name": "Beat Charlie",
       "family": "table",
       "familyLabel": "Table game",
-      "players": "2\u20138 players",
+      "players": "2–8 players",
       "summary": "A hand dealt to the middle that never bets or folds. Beat Charlie or leave the pot for the next deal.",
-      "covingtonOriginal": false
+      "covingtonOriginal": false,
+      "rank": null,
+      "rankProposed": "A",
+      "rankReason": "the dead hand to beat",
+      "titleLines": [
+        "Beat",
+        "Charlie"
+      ],
+      "cardMeta": "Table game · 2–8"
     },
     {
       "slug": "in-between",
       "name": "In Between",
       "family": "luck",
       "familyLabel": "Down to luck",
-      "players": "2\u201310 players",
+      "players": "2–10 players",
       "summary": "Bet that the next card falls between the two showing. Hit a post and you pay double.",
-      "covingtonOriginal": false
+      "covingtonOriginal": false,
+      "rank": null,
+      "rankProposed": "8",
+      "rankReason": "the middle of the deck",
+      "titleLines": [
+        "In",
+        "Between"
+      ],
+      "cardMeta": "Down to luck · 2–10"
     },
     {
       "slug": "night-baseball",
       "name": "Night Baseball",
       "family": "luck",
-      "familyLabel": "Down to luck \u00b7 blind",
-      "players": "2\u20138 players",
+      "familyLabel": "Down to luck · blind",
+      "players": "2–8 players",
       "summary": "Seven cards face down, nobody looks. Turn until you beat the board. Threes and nines wild, a four buys a card.",
-      "covingtonOriginal": false
+      "covingtonOriginal": false,
+      "rank": null,
+      "rankProposed": "3",
+      "rankReason": "threes are wild",
+      "titleLines": [
+        "Night",
+        "Baseball"
+      ],
+      "cardMeta": "Down to luck · 2–8"
     }
-  ]
+  ],
+  "_rankNote": "Only five-card-stud (5) and chase-the-queen (Q) have a client-confirmed rank. `rankProposed` values are designer suggestions with the reason given — confirm or replace before build. Render `rank || rankProposed`; if both are null, show the suit glyph alone."
 }

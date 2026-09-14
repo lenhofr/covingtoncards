@@ -12,9 +12,10 @@
   --brass-light: #e8cf7a;
   --brass-bright: #f2dd97;
   --ink-on-brass: #231a08;
-  --card-stock-1: #f4f0e4;
-  --card-stock-2: #e2dcca;
-  --card-stock-3: #e0dac6;
+  --card-stock-1: #fbf8f0;
+  --card-stock-2: #eae4d2;
+  --hero-stock-1: #f4f0e4;
+  --hero-stock-2: #e0dac6;
   --card-ink: #1b1a16;
   --card-body: #453f33;
   --card-muted: #7a6f52;
@@ -169,36 +170,6 @@ p {
   gap: 16px;
 }
 
-.game-card {
-  display: block;
-  background: linear-gradient(160deg, var(--card-stock-1), var(--card-stock-2));
-  border-radius: 10px;
-  padding: 16px 18px 18px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-  transition: transform 140ms ease-out, box-shadow 140ms ease-out;
-}
-
-.game-card.is-original {
-  outline: 2px solid var(--brass);
-}
-
-.game-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-}
-
-.game-card:active {
-  transform: translateY(0);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-}
-
-.game-card-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
 .family-label {
   font: 500 9px var(--font-body);
   letter-spacing: 0.18em;
@@ -206,26 +177,101 @@ p {
   color: var(--card-muted);
 }
 
-.game-card .suit-glyph {
-  font-size: 16px;
+/* Index card — a real playing card (option 4a): corner index top-left,
+   mirrored bottom-right, fixed 2.5x3.5 stock. */
+
+.game-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  aspect-ratio: 5 / 7;
+  background: linear-gradient(165deg, var(--card-stock-1), var(--card-stock-2));
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+  transition: transform 160ms ease-out, box-shadow 160ms ease-out;
+  transform-origin: bottom center;
 }
 
-.game-title {
-  margin: 6px 0 8px;
-  font: 500 23px/1.05 var(--font-heading);
+.game-card.is-original {
+  outline: 2px solid var(--brass);
+}
+
+.game-card:hover {
+  transform: translateY(-4px) rotate(-1deg);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.55);
+  cursor: pointer;
+}
+
+.game-card:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+}
+
+.card-index {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 26px;
+  line-height: 0.95;
+}
+
+.card-index--mirrored {
+  align-self: flex-end;
+  transform: rotate(180deg);
+}
+
+.card-index.suit-black {
+  color: var(--ink-on-brass);
+}
+
+.card-index.suit-red {
+  color: var(--suit-red);
+}
+
+.card-rank {
+  font: 500 26px var(--font-heading);
+}
+
+.card-index .suit-glyph {
+  font-size: 16px;
+  color: inherit;
+}
+
+.card-face {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 0 6px;
+}
+
+.card-title {
+  margin: 0;
+  font: 500 25px/1.05 var(--font-heading);
   color: var(--card-ink);
 }
 
-.game-rule {
+.card-divider {
+  width: 40px;
+  height: 1px;
+  margin: 12px auto;
+  background: var(--brass);
+}
+
+.card-summary {
   margin: 0;
-  font-size: 12.5px;
-  line-height: 1.55;
+  font-size: 12px;
+  line-height: 1.5;
   color: var(--card-body);
 }
 
-.game-meta {
-  margin-top: 12px;
-  font: 400 11px var(--font-body);
+.card-meta {
+  margin-top: 14px;
+  font: 500 9px var(--font-body);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   color: var(--card-muted);
 }
 
@@ -312,7 +358,7 @@ p {
 
 .hero-card {
   margin: 0 16px;
-  background: linear-gradient(160deg, var(--card-stock-1), var(--card-stock-3));
+  background: linear-gradient(160deg, var(--hero-stock-1), var(--hero-stock-2));
   border-radius: 12px;
   padding: 18px 20px 20px;
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5);
