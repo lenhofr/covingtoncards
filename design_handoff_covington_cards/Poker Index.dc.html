@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="_ds/nocturne-2869eae4-bc6b-4f31-8cfe-ea370e82f1a6/styles.css">
+<script src="_ds/nocturne-2869eae4-bc6b-4f31-8cfe-ea370e82f1a6/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&display=swap">
+<style>
+body{margin:0;background:#0b1711;font-family:var(--font-body)}
+.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(240,236,225,.08);scroll-margin-top:16px}
+.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}
+.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#c9a227;color:#231a08;border-radius:4px;text-decoration:none}
+.dv-tname{font:500 13px/1.2 var(--font-heading);color:#f0ece1}
+.dv-opts{display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start}
+.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px;max-width:100%}
+.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(240,236,225,.1);color:#f0ece1;border-radius:5px;text-decoration:none}
+.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 var(--font-body);color:rgba(240,236,225,.55)}
+.dv-card{max-width:100%;border-radius:10px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,.6),0 0 0 1px rgba(201,162,39,.22)}
+.dv-opt:target .dv-oid{background:#c9a227;color:#231a08}
+.dv-next{margin:22px 0 0;font:12px/1.6 var(--font-body);color:rgba(240,236,225,.45)}
+.dv-next a{color:rgba(240,236,225,.75)}
+a{color:#c9a227}a:hover{color:#e8cf7a}
+@keyframes dealFade{from{opacity:0}to{opacity:1}}
+</style>
+</helmet>
+
+<section class="dv-turn" id="t3">
+<div class="dv-thd"><a class="dv-tid" href="#t3">3</a><span class="dv-tname">Tap a card in <a class="dv-oid" href="#2a">2a</a> → the game screen, on mobile</span></div>
+<div class="dv-opts">
+
+<div class="dv-opt" id="3a">
+<div class="dv-olabel"><a class="dv-oid" href="#3a">3a</a>Rules on the felt — the card becomes a header, rules scroll beneath it</div>
+<div class="dv-card" style="width:390px;height:844px;border-radius:34px;overflow:hidden;background:radial-gradient(120% 80% at 50% 0%,#1a4a33,#0d2519 60%,#08160f);display:flex;flex-direction:column">
+  <div style="padding:14px 20px 0;font:500 11px var(--font-heading);color:rgba(240,236,225,.5);display:flex;justify-content:space-between"><span>9:41</span><span>covingtoncards.com</span></div>
+  <div style="display:flex;align-items:center;gap:14px;padding:14px 16px 16px">
+    <div style="width:44px;height:44px;border-radius:50%;border:1px solid rgba(201,162,39,.55);display:flex;align-items:center;justify-content:center;color:#e8cf7a;font-size:20px;line-height:1">&#8249;</div>
+    <div style="font:500 10px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:rgba(240,236,225,.5)">All games</div>
+  </div>
+
+  <div style="margin:0 16px;background:linear-gradient(160deg,#f4f0e4,#e0dac6);border-radius:12px;padding:18px 20px 20px;box-shadow:0 10px 26px rgba(0,0,0,.5);outline:2px solid #c9a227">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div style="font:500 9px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#7a6f52">Stud · Covington original</div>
+      <div style="font-size:18px;color:#231a08">&#9824;</div>
+    </div>
+    <h3 style="font-family:'Bodoni Moda',serif;font-weight:500;font-size:32px;color:#1b1a16;margin:8px 0 2px;line-height:1">Krogering</h3>
+    <div style="font:400 12.5px var(--font-body);color:#7a6f52;font-style:italic">also called low hold</div>
+    <p style="margin:12px 0 0;font-size:13.5px;line-height:1.6;color:#453f33;text-wrap:pretty">Seven-card stud, but your lowest down card is wild — and so is every other card of that rank in your hand. Catch a lower one on the last card and the whole hand rearranges itself.</p>
+  </div>
+
+  <div style="display:flex;margin:18px 16px 0;border-top:1px solid rgba(201,162,39,.3);border-bottom:1px solid rgba(201,162,39,.3)">
+    <div style="flex:1;padding:12px 0"><div style="font:500 9px var(--font-heading);letter-spacing:.16em;text-transform:uppercase;color:rgba(240,236,225,.45)">Players</div><div style="font-family:'Bodoni Moda',serif;font-size:20px;color:#f0ece1">2–8</div></div>
+    <div style="flex:1;padding:12px 0"><div style="font:500 9px var(--font-heading);letter-spacing:.16em;text-transform:uppercase;color:rgba(240,236,225,.45)">Bets</div><div style="font-family:'Bodoni Moda',serif;font-size:20px;color:#f0ece1">Five</div></div>
+    <div style="flex:1.4;padding:12px 0"><div style="font:500 9px var(--font-heading);letter-spacing:.16em;text-transform:uppercase;color:rgba(240,236,225,.45)">Wild</div><div style="font-family:'Bodoni Moda',serif;font-size:20px;color:#e8cf7a">Low hole</div></div>
+  </div>
+
+  <div style="padding:20px 20px 0;overflow:hidden">
+    <div style="font:500 10px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#c9a227;margin-bottom:12px">The deal</div>
+    <div style="display:flex;flex-direction:column;gap:11px">
+      <div style="display:flex;gap:12px"><div style="font-family:'Bodoni Moda',serif;font-size:15px;color:#c9a227;width:14px;flex:none">1</div><div style="font-size:13px;line-height:1.5;color:rgba(240,236,225,.82)">Two down, then one up. Bet.</div></div>
+      <div style="display:flex;gap:12px"><div style="font-family:'Bodoni Moda',serif;font-size:15px;color:#c9a227;width:14px;flex:none">2</div><div style="font-size:13px;line-height:1.5;color:rgba(240,236,225,.82)">Three more up, a bet after each.</div></div>
+      <div style="display:flex;gap:12px"><div style="font-family:'Bodoni Moda',serif;font-size:15px;color:#c9a227;width:14px;flex:none">3</div><div style="font-size:13px;line-height:1.5;color:rgba(240,236,225,.82)">Last card down. Final bet.</div></div>
+      <div style="display:flex;gap:12px"><div style="font-family:'Bodoni Moda',serif;font-size:15px;color:#c9a227;width:14px;flex:none">4</div><div style="font-size:13px;line-height:1.5;color:rgba(240,236,225,.82)">Name your low hole card at showdown, not before. Best five of seven takes it.</div></div>
+    </div>
+    <div style="height:1px;margin:18px 0;background:linear-gradient(to right,transparent,rgba(201,162,39,.4) 20px,rgba(201,162,39,.4) calc(100% - 20px),transparent)"></div>
+    <div style="font:500 10px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#c9a227;margin-bottom:10px">House notes</div>
+    <p style="margin:0;font-size:13px;line-height:1.55;color:rgba(240,236,225,.7);text-wrap:pretty">Aces are high, so an ace in the hole is worth nothing wild. Declare before the cards are read, or the hand plays as dealt.</p>
+  </div>
+
+  <div style="margin-top:auto;padding:14px 16px 26px;display:flex;gap:10px;background:linear-gradient(#2a180f,#1d1008);border-top:1px solid rgba(201,162,39,.35)">
+    <div style="flex:1;height:48px;display:flex;align-items:center;justify-content:center;font:500 14px var(--font-heading);color:#231a08;background:linear-gradient(#e8cf7a,#c9a227);border-radius:999px">Call this game</div>
+    <div style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(201,162,39,.6);border-radius:999px;color:#e8cf7a;font-size:17px">&#9829;</div>
+  </div>
+</div>
+</div>
+
+<div class="dv-opt" id="3b">
+<div class="dv-olabel"><a class="dv-oid" href="#3b">3b</a>The card opens — rules printed on the card itself, felt only at the edges</div>
+<div class="dv-card" style="width:390px;height:844px;border-radius:34px;overflow:hidden;background:radial-gradient(120% 80% at 50% 0%,#1a4a33,#0d2519 70%);padding:12px 12px 0;display:flex;flex-direction:column">
+  <div style="padding:4px 8px 10px;font:500 11px var(--font-heading);color:rgba(240,236,225,.55);display:flex;justify-content:space-between"><span>9:41</span><span>Krogering &middot; 4 of 10</span></div>
+  <div style="flex:1;background:linear-gradient(165deg,#f7f3e8,#e3ddc9);border-radius:18px 18px 0 0;padding:8px;box-shadow:0 -6px 30px rgba(0,0,0,.55);display:flex;flex-direction:column">
+    <div style="flex:1;border:1px solid rgba(35,26,8,.3);border-radius:12px 12px 0 0;padding:20px 22px 0;display:flex;flex-direction:column;overflow:hidden">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div style="width:40px;height:40px;margin:-6px 0 0 -6px;display:flex;align-items:center;justify-content:center;font-size:20px;color:#231a08">&#8249;</div>
+        <div style="font-size:22px;color:#231a08;line-height:1">&#9824;</div>
+      </div>
+      <div style="text-align:center;margin-top:4px">
+        <div style="font:500 9px var(--font-heading);letter-spacing:.2em;text-transform:uppercase;color:#a8332f">Covington original</div>
+        <h3 style="font-family:'Bodoni Moda',serif;font-weight:400;font-size:38px;color:#1b1a16;margin:8px 0 0;line-height:1">Krogering</h3>
+        <div style="font:400 12.5px var(--font-body);color:#7a6f52;font-style:italic;margin-top:3px">low hold &middot; seven-card stud</div>
+        <div style="width:64px;height:1px;background:#c9a227;margin:14px auto 0"></div>
+      </div>
+
+      <p style="margin:16px 0 0;font-size:14px;line-height:1.62;color:#3a352a;text-wrap:pretty">Seven-card stud, but your lowest down card is wild — and so is every other card of that rank in your hand. Catch a lower one on the last card and the whole hand rearranges itself. Named for the man who would not stop dealing it.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px 0;margin:18px 0 0;border-top:1px solid rgba(35,26,8,.18);border-bottom:1px solid rgba(35,26,8,.18);padding:10px 0">
+        <div style="font:500 10px var(--font-heading);letter-spacing:.14em;text-transform:uppercase;color:#7a6f52">Players</div>
+        <div style="font-size:13px;color:#1b1a16">Two to eight</div>
+        <div style="font:500 10px var(--font-heading);letter-spacing:.14em;text-transform:uppercase;color:#7a6f52">Betting</div>
+        <div style="font-size:13px;color:#1b1a16">Five rounds</div>
+        <div style="font:500 10px var(--font-heading);letter-spacing:.14em;text-transform:uppercase;color:#7a6f52">Wild</div>
+        <div style="font-size:13px;color:#a8332f">Your low hole card</div>
+      </div>
+
+      <div style="font:500 10px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#a8332f;margin:18px 0 10px">The deal</div>
+      <div style="display:flex;flex-direction:column;gap:9px;font-size:13px;line-height:1.5;color:#3a352a">
+        <div style="display:flex;gap:10px"><span style="font-family:'Bodoni Moda',serif;color:#a8332f;width:12px;flex:none">1</span><span>Two down, then one up. Bet.</span></div>
+        <div style="display:flex;gap:10px"><span style="font-family:'Bodoni Moda',serif;color:#a8332f;width:12px;flex:none">2</span><span>Three more up, a bet after each.</span></div>
+        <div style="display:flex;gap:10px"><span style="font-family:'Bodoni Moda',serif;color:#a8332f;width:12px;flex:none">3</span><span>Last card down, final bet, then showdown.</span></div>
+        <div style="display:flex;gap:10px"><span style="font-family:'Bodoni Moda',serif;color:#a8332f;width:12px;flex:none">4</span><span>Name your low hole card at showdown, not before. Best five of seven takes it.</span></div>
+      </div>
+      <div style="font:500 10px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#a8332f;margin:18px 0 9px">House notes</div>
+      <p style="margin:0;font-size:13px;line-height:1.55;color:#3a352a;text-wrap:pretty">Aces are high, so an ace in the hole is worth nothing wild. Declare before the cards are read, or the hand plays as dealt.</p>
+      <div style="margin-top:auto;padding:16px 0 18px;display:flex;gap:10px;align-items:center">
+        <div style="flex:1;height:46px;display:flex;align-items:center;justify-content:center;font:500 13.5px var(--font-heading);color:#f7f3e8;background:#1b1a16;border-radius:999px">Call this game</div>
+        <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(35,26,8,.35);border-radius:999px;color:#a8332f;font-size:16px">&#9829;</div>
+        <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(35,26,8,.35);border-radius:999px;color:#231a08;font-size:18px">&#8250;</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</div>
+<p class="dv-next">Try next: "go with <a class="dv-oid" href="#3b">3b</a> and show it for Night Baseball too" · "add a desktop version of <a class="dv-oid" href="#3a">3a</a>" · "show the swipe-to-next-game interaction"</p>
+</section>
+
+<section class="dv-turn" id="t2">
+<div class="dv-thd"><a class="dv-tid" href="#t2">2</a><span class="dv-tname">Felt grid from <a class="dv-oid" href="#1b">1b</a> — modifiers out, suits given a job</span></div>
+<div class="dv-opts">
+<div class="dv-opt" id="2a">
+<div class="dv-olabel"><a class="dv-oid" href="#2a">2a</a>Suit now encodes the family — key in the header, wild rules folded into the rules line</div>
+<div class="dv-card" style="width:1120px;background:radial-gradient(130% 100% at 50% -10%,#1a4a33 0%,#10301f 50%,#0a1d13 100%);padding:34px 38px 40px;border:14px solid #2a180f;border-radius:18px">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:30px;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;gap:16px">
+      <div style="width:34px;height:34px;border-radius:50%;background:radial-gradient(#a8332f,#7d211e);border:3px dashed rgba(240,236,225,.75);box-shadow:0 2px 6px rgba(0,0,0,.5)"></div>
+      <div>
+        <div style="font:500 10px var(--font-heading);letter-spacing:.22em;text-transform:uppercase;color:#c9a227">covingtoncards.com</div>
+        <h2 style="font-family:'Bodoni Moda',serif;font-weight:400;font-size:34px;color:#f0ece1;margin:4px 0 0">Covington Cards</h2>
+      </div>
+    </div>
+    <div style="display:flex;gap:20px;align-items:baseline;font:400 11.5px var(--font-body);color:rgba(240,236,225,.6)">
+      <span><span style="font-size:15px;color:#f0ece1">&#9824;</span>&nbsp; Stud</span>
+      <span><span style="font-size:15px;color:#e08b87">&#9830;</span>&nbsp; Community cards</span>
+      <span><span style="font-size:15px;color:#e08b87">&#9829;</span>&nbsp; Down to luck</span>
+      <span><span style="font-size:15px;color:#f0ece1">&#9827;</span>&nbsp; Table game</span>
+    </div>
+  </div>
+  <p style="margin:14px 0 26px 50px;font-size:13px;color:rgba(240,236,225,.5)">Pick one when it's your deal. Most of these were invented within a mile of the river.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px">
+    <div style="background:linear-gradient(160deg,#f4f0e4,#e2dcca);border-radius:10px;padding:16px 18px 18px;box-shadow:0 6px 16px rgba(0,0,0,.4)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font:500 9px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#7a6f52">Stud</div><div style="font-size:16px;color:#231a08">&#9824;</div></div>
+      <h3 style="font-family:'Bodoni Moda',serif;font-weight:500;font-size:23px;color:#1b1a16;margin:6px 0 8px;line-height:1.05">Five-Card Stud</h3>
+      <p style="margin:0;font-size:12.5px;line-height:1.55;color:#453f33;text-wrap:pretty">One down, four up, a bet every street. No draw, no community, nowhere to hide.</p>
+      <div style="margin-top:12px;font:400 11px var(--font-body);color:#7a6f52">2–10 players</div>
+    </div>
+    <div style="background:linear-gradient(160deg,#f4f0e4,#e2dcca);border-radius:10px;padding:16px 18px 18px;box-shadow:0 6px 16px rgba(0,0,0,.4)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font:500 9px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#7a6f52">Stud</div><div style="font-size:16px;color:#231a08">&#9824;</div></div>
+      <h3 style="font-family:'Bodoni Moda',serif;font-weight:500;font-size:23px;color:#1b1a16;margin:6px 0 8px;line-height:1.05">Seven-Card Stud</h3>
+      <p style="margin:0;font-size:12.5px;line-height:1.55;color:#453f33;text-wrap:pretty">Two down, four up, one down. Five bets, best five of seven. Arithmetic and nerve.</p>
+      <div style="margin-top:12px;font:400 11px var(--font-body);color:#7a6f52">2–8 players</div>
+    </div>
+    <div style="background:linear-gradient(160deg,#f4f0e4,#e2dcca);border-radius:10px;padding:16px 18px 18px;box-shadow:0 6px 16px rgba(0,0,0,.4)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font:500 9px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#7a6f52">Community</div><div style="font-size:16px;color:#a8332f">&#9830;</div></div>
+      <h3 style="font-family:'Bodoni Moda',serif;font-weight:500;font-size:23px;color:#1b1a16;margin:6px 0 8px;line-height:1.05">Criss Cross</h3>
+      <p style="margin:0;font-size:12.5px;line-height:1.55;color:#453f33;text-wrap:pretty">Five community cards in a cross. Play the row or the column, never the middle twice.</p>
+      <div style="margin-top:12px;font:400 11px var(--font-body);color:#7a6f52">3–7 players</div>
+    </div>
+    <div style="background:linear-gradient(160deg,#f4f0e4,#e2dcca);border-radius:10px;padding:16px 18px 18px;box-shadow:0 6px 16px rgba(0,0,0,.4);outline:2px solid #c9a227">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font:500 9px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#7a6f52">Stud · Covington original</div><div style="font-size:16px;color:#231a08">&#9824;</div></div>
+      <h3 style="font-family:'Bodoni Moda',serif;font-weight:500;font-size:23px;color:#1b1a16;margin:6px 0 8px;line-height:1.05">Krogering</h3>
+      <p style="margin:0;font-size:12.5px;line-height:1.55;color:#453f33;text-wrap:pretty">Seven-stud, but your lowest down card is wild — and so is every card of that rank in your hand. Named for the man who kept dealing it.</p>
+      <div style="margin-top:12px;font:400 11px var(--font-body);color:#7a6f52">2–8 players</div>
+    </div>
+    <div style="background:linear-gradient(160deg,#f4f0e4,#e2dcca);border-radius:10px;padding:16px 18px 18px;box-shadow:0 6px 16px rgba(0,0,0,.4)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font:500 9px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#7a6f52">Stud</div><div style="font-size:16px;color:#231a08">&#9824;</div></div>
+      <h3 style="font-family:'Bodoni Moda',serif;font-weight:500;font-size:23px;color:#1b1a16;margin:6px 0 8px;line-height:1.05">Chase the Queen</h3>
+      <p style="margin:0;font-size:12.5px;line-height:1.55;color:#453f33;text-wrap:pretty">A queen face up makes the next up card wild for everyone. A fresh queen retires the old one.</p>
+      <div style="margin-top:12px;font:400 11px var(--font-body);color:#7a6f52">3–8 players</div>
+    </div>
+    <div style="background:linear-gradient(160deg,#f4f0e4,#e2dcca);border-radius:10px;padding:16px 18px 18px;box-shadow:0 6px 16px rgba(0,0,0,.4)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font:500 9px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#7a6f52">Table game</div><div style="font-size:16px;color:#231a08">&#9827;</div></div>
+      <h3 style="font-family:'Bodoni Moda',serif;font-weight:500;font-size:23px;color:#1b1a16;margin:6px 0 8px;line-height:1.05">Screw Your Neighbor</h3>
+      <p style="margin:0;font-size:12.5px;line-height:1.55;color:#453f33;text-wrap:pretty">One card, three lives. Keep it or trade left. Lowest card loses a life; a king can't be taken.</p>
+      <div style="margin-top:12px;font:400 11px var(--font-body);color:#7a6f52">4–9 players</div>
+    </div>
+    <div style="background:linear-gradient(160deg,#f4f0e4,#e2dcca);border-radius:10px;padding:16px 18px 18px;box-shadow:0 6px 16px rgba(0,0,0,.4)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font:500 9px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#7a6f52">Table game · no deck</div><div style="font-size:16px;color:#231a08">&#9827;</div></div>
+      <h3 style="font-family:'Bodoni Moda',serif;font-weight:500;font-size:23px;color:#1b1a16;margin:6px 0 8px;line-height:1.05">Liar's Poker</h3>
+      <p style="margin:0;font-size:12.5px;line-height:1.55;color:#453f33;text-wrap:pretty">Bid on the digits in a dollar bill's serial number. Call the bluff and lay the bills out.</p>
+      <div style="margin-top:12px;font:400 11px var(--font-body);color:#7a6f52">3–6 players</div>
+    </div>
+    <div style="background:linear-gradient(160deg,#f4f0e4,#e2dcca);border-radius:10px;padding:16px 18px 18px;box-shadow:0 6px 16px rgba(0,0,0,.4)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font:500 9px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#7a6f52">Table game</div><div style="font-size:16px;color:#231a08">&#9827;</div></div>
+      <h3 style="font-family:'Bodoni Moda',serif;font-weight:500;font-size:23px;color:#1b1a16;margin:6px 0 8px;line-height:1.05">Beat Charlie</h3>
+      <p style="margin:0;font-size:12.5px;line-height:1.55;color:#453f33;text-wrap:pretty">A hand dealt to the middle that never bets or folds. Beat Charlie or leave the pot for the next deal.</p>
+      <div style="margin-top:12px;font:400 11px var(--font-body);color:#7a6f52">2–8 players</div>
+    </div>
+    <div style="background:linear-gradient(160deg,#f4f0e4,#e2dcca);border-radius:10px;padding:16px 18px 18px;box-shadow:0 6px 16px rgba(0,0,0,.4)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font:500 9px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#7a6f52">Down to luck</div><div style="font-size:16px;color:#a8332f">&#9829;</div></div>
+      <h3 style="font-family:'Bodoni Moda',serif;font-weight:500;font-size:23px;color:#1b1a16;margin:6px 0 8px;line-height:1.05">In Between</h3>
+      <p style="margin:0;font-size:12.5px;line-height:1.55;color:#453f33;text-wrap:pretty">Bet that the next card falls between the two showing. Hit a post and you pay double.</p>
+      <div style="margin-top:12px;font:400 11px var(--font-body);color:#7a6f52">2–10 players</div>
+    </div>
+    <div style="background:linear-gradient(160deg,#f4f0e4,#e2dcca);border-radius:10px;padding:16px 18px 18px;box-shadow:0 6px 16px rgba(0,0,0,.4)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font:500 9px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#7a6f52">Down to luck · blind</div><div style="font-size:16px;color:#a8332f">&#9829;</div></div>
+      <h3 style="font-family:'Bodoni Moda',serif;font-weight:500;font-size:23px;color:#1b1a16;margin:6px 0 8px;line-height:1.05">Night Baseball</h3>
+      <p style="margin:0;font-size:12.5px;line-height:1.55;color:#453f33;text-wrap:pretty">Seven cards face down, nobody looks. Turn until you beat the board. Threes and nines wild, a four buys a card.</p>
+      <div style="margin-top:12px;font:400 11px var(--font-body);color:#7a6f52">2–8 players</div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<p class="dv-next">Try next: "give every game its own rules page" · "add a Covington original badge to the ones we invented" · "make <a class="dv-oid" href="#2a">2a</a> work on a phone"</p>
+</section>
+
+<section class="dv-turn" id="t1">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">House index — three treatments</span></div>
+<div class="dv-opts">
+
+<div class="dv-opt" id="1a">
+<div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>The ledger — leather rail, brass rules, dense and scannable</div>
+<div class="dv-card" style="width:1120px;background:linear-gradient(#1d1008,#160c06);padding:2px">
+  <div style="background:linear-gradient(180deg,#3a2318,#2a180f);padding:26px 40px 22px;border-bottom:1px solid rgba(201,162,39,.35)">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px">
+      <div>
+        <div style="font:500 10px/1 var(--font-heading);letter-spacing:.22em;text-transform:uppercase;color:#c9a227;margin-bottom:10px">covingtoncards.com &middot; Covington, Kentucky</div>
+        <h1 style="font-family:'Bodoni Moda',serif;font-weight:400;font-size:44px;line-height:1;color:#f0ece1;margin:0;letter-spacing:-.01em">Covington Cards</h1>
+        <p style="margin:8px 0 0;font-size:13px;color:rgba(240,236,225,.55)">Ten games, as we actually play them. Most of them were invented in this town. Arguments settled by whatever is written here.</p>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <div style="font:400 12px var(--font-body);color:rgba(240,236,225,.4)">Wild-card rules in play</div>
+        <span style="font:500 11px var(--font-heading);color:#f0ece1;border:1px solid rgba(201,162,39,.5);border-radius:999px;padding:4px 11px">Low hole wild</span>
+        <span style="font:500 11px var(--font-heading);color:#f0ece1;border:1px solid rgba(201,162,39,.5);border-radius:999px;padding:4px 11px">Dealer names one</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:radial-gradient(120% 90% at 20% 0%,#16402d 0%,#0f2a1e 55%,#0a1d14 100%);padding:8px 0 22px">
+    <div style="display:grid;grid-template-columns:250px 92px 1fr;gap:0 28px;padding:14px 40px 10px;font:500 10px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:rgba(240,236,225,.4)">
+      <div>Game</div><div>Family</div><div>How it goes</div>
+    </div>
+    <div style="height:1px;margin:0 40px;background:linear-gradient(to right,transparent,rgba(201,162,39,.45) 48px,rgba(201,162,39,.45) calc(100% - 48px),transparent)"></div>
+
+    <div style="display:grid;grid-template-columns:250px 92px 1fr;gap:18px 28px;padding:20px 40px 0;align-items:baseline">
+      <div style="font-family:'Bodoni Moda',serif;font-size:22px;color:#f0ece1">Five-Card Stud <span style="color:#c9a227;font-size:15px">♠</span></div>
+      <div style="font:400 11px var(--font-body);color:rgba(240,236,225,.5);letter-spacing:.06em;text-transform:uppercase">Stud</div>
+      <p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(240,236,225,.82);text-wrap:pretty">One card down, four up, a bet on every street. No draw, no community, nowhere to hide — you play the cards you were given and the cards everyone can already see. Oldest game in the book and still the meanest.</p>
+
+      <div style="font-family:'Bodoni Moda',serif;font-size:22px;color:#f0ece1">Seven-Card Stud <span style="color:#c9a227;font-size:15px">♣</span></div>
+      <div style="font:400 11px var(--font-body);color:rgba(240,236,225,.5);letter-spacing:.06em;text-transform:uppercase">Stud</div>
+      <p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(240,236,225,.82);text-wrap:pretty">Two down, four up, one down. Five betting rounds, best five of your seven. Everything the table needs to know is showing; the rest is arithmetic and nerve.</p>
+
+      <div style="font-family:'Bodoni Moda',serif;font-size:22px;color:#f0ece1">Criss Cross <span style="color:#a8332f;font-size:15px">♦</span></div>
+      <div style="font:400 11px var(--font-body);color:rgba(240,236,225,.5);letter-spacing:.06em;text-transform:uppercase">Community</div>
+      <p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(240,236,225,.82);text-wrap:pretty">Four in the hole and five on the table laid out in a cross. Community cards turn one at a time with betting between. At the end you play the row or the column — three cards, never the middle twice — plus two of your own.</p>
+
+      <div style="font-family:'Bodoni Moda',serif;font-size:22px;color:#f0ece1">Krogering <span style="font-family:var(--font-body);font-size:12px;color:rgba(240,236,225,.45)">(low hold)</span></div>
+      <div style="font:400 11px var(--font-body);color:rgba(240,236,225,.5);letter-spacing:.06em;text-transform:uppercase">Stud</div>
+      <p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(240,236,225,.82);text-wrap:pretty">Seven-card stud, except your lowest down card is wild — and so is every other card of that rank in your hand. Catch a lower one on the last card and the whole hand rearranges itself. Named for the man who would not stop dealing it.</p>
+
+      <div style="font-family:'Bodoni Moda',serif;font-size:22px;color:#f0ece1">Chase the Queen <span style="color:#a8332f;font-size:15px">♥</span></div>
+      <div style="font:400 11px var(--font-body);color:rgba(240,236,225,.5);letter-spacing:.06em;text-transform:uppercase">Stud</div>
+      <p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(240,236,225,.82);text-wrap:pretty">Seven-card stud. Every time a queen lands face up, the next up card dealt is wild for everybody — and a fresh queen retires the old wild. If the last queen shows on a final down card, nothing is wild and somebody is very unhappy.</p>
+
+      <div style="font-family:'Bodoni Moda',serif;font-size:22px;color:#f0ece1">Screw Your Neighbor</div>
+      <div style="font:400 11px var(--font-body);color:rgba(240,236,225,.5);letter-spacing:.06em;text-transform:uppercase">Lives</div>
+      <p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(240,236,225,.82);text-wrap:pretty">One card each, three lives apiece. In turn you keep what you have or trade it with the player on your left; the dealer's only out is the top of the deck. Lowest card at the end loses a life. A king in hand cannot be taken.</p>
+
+      <div style="font-family:'Bodoni Moda',serif;font-size:22px;color:#f0ece1">Liar's Poker</div>
+      <div style="font:400 11px var(--font-body);color:rgba(240,236,225,.5);letter-spacing:.06em;text-transform:uppercase">No cards</div>
+      <p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(240,236,225,.82);text-wrap:pretty">No deck at all. Everyone holds a dollar bill and bids on the digits in the serial numbers — three fives, four sevens — each bid beating the last. Call the bluff and lay the bills on the table. The worst liars lose the most money.</p>
+
+      <div style="font-family:'Bodoni Moda',serif;font-size:22px;color:#f0ece1">Beat Charlie</div>
+      <div style="font:400 11px var(--font-body);color:rgba(240,236,225,.5);letter-spacing:.06em;text-transform:uppercase">Dead hand</div>
+      <p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(240,236,225,.82);text-wrap:pretty">A hand is dealt face down to the middle of the table. That is Charlie, and Charlie does not bet, fold, or complain. Everybody plays the pot against him. Beat Charlie and you split what's there; lose to him and you leave it for the next deal.</p>
+
+      <div style="font-family:'Bodoni Moda',serif;font-size:22px;color:#f0ece1">In Between</div>
+      <div style="font:400 11px var(--font-body);color:rgba(240,236,225,.5);letter-spacing:.06em;text-transform:uppercase">Pot game</div>
+      <p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(240,236,225,.82);text-wrap:pretty">Two cards face up, then you bet on whether the next one lands between them. Hit either post and you pay double into the pot. Ace–deuce showing is an invitation; a five and a six is a trap.</p>
+
+      <div style="font-family:'Bodoni Moda',serif;font-size:22px;color:#f0ece1">Night Baseball</div>
+      <div style="font:400 11px var(--font-body);color:rgba(240,236,225,.5);letter-spacing:.06em;text-transform:uppercase">Blind</div>
+      <p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(240,236,225,.82);text-wrap:pretty">Seven cards face down and nobody looks. Turn one at a time around the table and you must beat the best board showing or keep turning until you do. Threes and nines are wild, a four buys an extra card, and the hand is over before anyone knows what happened.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="dv-opt" id="1b">
+<div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Felt grid — each game as a chip-marked card, modifiers shown inline</div>
+<div class="dv-card" style="width:1120px;background:radial-gradient(130% 100% at 50% -10%,#1a4a33 0%,#10301f 50%,#0a1d13 100%);padding:34px 38px 40px;border:14px solid #2a180f;border-radius:18px">
+  <div style="display:flex;align-items:center;gap:16px;margin-bottom:6px">
+    <div style="width:34px;height:34px;border-radius:50%;background:radial-gradient(#a8332f,#7d211e);border:3px dashed rgba(240,236,225,.75);box-shadow:0 2px 6px rgba(0,0,0,.5)"></div>
+    <h2 style="font-family:'Bodoni Moda',serif;font-weight:400;font-size:34px;color:#f0ece1;margin:0">Covington Cards</h2>
+    <div style="margin-left:auto;font:500 10px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#c9a227">Dealer's choice index</div>
+  </div>
+  <p style="margin:0 0 26px 50px;font-size:13px;color:rgba(240,236,225,.5)">Pick one when it's your deal. Modifiers stack onto anything with cards. Invented, mostly, within a mile of the river.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px">
+    <div style="background:linear-gradient(160deg,#f4f0e4,#e2dcca);border-radius:10px;padding:16px 18px 18px;box-shadow:0 6px 16px rgba(0,0,0,.4)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font:500 9px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#7a6f52">Stud</div><div style="font-size:16px;color:#231a08">♠</div></div>
+      <h3 style="font-family:'Bodoni Moda',serif;font-weight:500;font-size:23px;color:#1b1a16;margin:6px 0 8px;line-height:1.05">Five-Card Stud</h3>
+      <p style="margin:0;font-size:12.5px;line-height:1.55;color:#453f33;text-wrap:pretty">One down, four up, a bet every street. No draw, no community, nowhere to hide.</p>
+      <div style="margin-top:12px;font:400 11px var(--font-body);color:#7a6f52">2–10 players</div>
+    </div>
+    <div style="background:linear-gradient(160deg,#f4f0e4,#e2dcca);border-radius:10px;padding:16px 18px 18px;box-shadow:0 6px 16px rgba(0,0,0,.4)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font:500 9px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#7a6f52">Stud</div><div style="font-size:16px;color:#231a08">♣</div></div>
+      <h3 style="font-family:'Bodoni Moda',serif;font-weight:500;font-size:23px;color:#1b1a16;margin:6px 0 8px;line-height:1.05">Seven-Card Stud</h3>
+      <p style="margin:0;font-size:12.5px;line-height:1.55;color:#453f33;text-wrap:pretty">Two down, four up, one down. Five bets, best five of seven. Arithmetic and nerve.</p>
+      <div style="margin-top:12px;font:400 11px var(--font-body);color:#7a6f52">2–8 players</div>
+    </div>
+    <div style="background:linear-gradient(160deg,#f4f0e4,#e2dcca);border-radius:10px;padding:16px 18px 18px;box-shadow:0 6px 16px rgba(0,0,0,.4)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font:500 9px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#7a6f52">Community</div><div style="font-size:16px;color:#a8332f">♦</div></div>
+      <h3 style="font-family:'Bodoni Moda',serif;font-weight:500;font-size:23px;color:#1b1a16;margin:6px 0 8px;line-height:1.05">Criss Cross</h3>
+      <p style="margin:0;font-size:12.5px;line-height:1.55;color:#453f33;text-wrap:pretty">Five community cards in a cross. Play the row or the column, never the middle twice.</p>
+      <div style="margin-top:12px;font:400 11px var(--font-body);color:#7a6f52">3–7 players</div>
+    </div>
+    <div style="background:linear-gradient(160deg,#f4f0e4,#e2dcca);border-radius:10px;padding:16px 18px 18px;box-shadow:0 6px 16px rgba(0,0,0,.4);outline:2px solid #c9a227">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font:500 9px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#7a6f52">Stud · house game</div><div style="font-size:16px;color:#231a08">♠</div></div>
+      <h3 style="font-family:'Bodoni Moda',serif;font-weight:500;font-size:23px;color:#1b1a16;margin:6px 0 8px;line-height:1.05">Krogering</h3>
+      <p style="margin:0;font-size:12.5px;line-height:1.55;color:#453f33;text-wrap:pretty">Seven-stud where your lowest down card — and its rank — runs wild. Named for the man who kept dealing it.</p>
+      <div style="margin-top:12px;display:flex;gap:6px;flex-wrap:wrap"><span style="font:500 10px var(--font-heading);background:#231a08;color:#e8cf7a;border-radius:999px;padding:3px 9px">Low hole wild</span></div>
+    </div>
+    <div style="background:linear-gradient(160deg,#f4f0e4,#e2dcca);border-radius:10px;padding:16px 18px 18px;box-shadow:0 6px 16px rgba(0,0,0,.4)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font:500 9px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#7a6f52">Stud</div><div style="font-size:16px;color:#a8332f">♥</div></div>
+      <h3 style="font-family:'Bodoni Moda',serif;font-weight:500;font-size:23px;color:#1b1a16;margin:6px 0 8px;line-height:1.05">Chase the Queen</h3>
+      <p style="margin:0;font-size:12.5px;line-height:1.55;color:#453f33;text-wrap:pretty">A queen face up makes the next up card wild for everyone. A fresh queen retires the old one.</p>
+      <div style="margin-top:12px;display:flex;gap:6px;flex-wrap:wrap"><span style="font:500 10px var(--font-heading);background:#231a08;color:#e8cf7a;border-radius:999px;padding:3px 9px">Moving wild</span></div>
+    </div>
+    <div style="background:linear-gradient(160deg,#f4f0e4,#e2dcca);border-radius:10px;padding:16px 18px 18px;box-shadow:0 6px 16px rgba(0,0,0,.4)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font:500 9px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#7a6f52">Lives</div><div style="font-size:16px;color:#231a08">♠</div></div>
+      <h3 style="font-family:'Bodoni Moda',serif;font-weight:500;font-size:23px;color:#1b1a16;margin:6px 0 8px;line-height:1.05">Screw Your Neighbor</h3>
+      <p style="margin:0;font-size:12.5px;line-height:1.55;color:#453f33;text-wrap:pretty">One card, three lives. Keep it or trade left. Lowest card loses a life; a king can't be taken.</p>
+      <div style="margin-top:12px;font:400 11px var(--font-body);color:#7a6f52">4–9 players</div>
+    </div>
+    <div style="background:linear-gradient(160deg,#f4f0e4,#e2dcca);border-radius:10px;padding:16px 18px 18px;box-shadow:0 6px 16px rgba(0,0,0,.4)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font:500 9px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#7a6f52">No cards</div><div style="font-size:16px;color:#7a6f52">$</div></div>
+      <h3 style="font-family:'Bodoni Moda',serif;font-weight:500;font-size:23px;color:#1b1a16;margin:6px 0 8px;line-height:1.05">Liar's Poker</h3>
+      <p style="margin:0;font-size:12.5px;line-height:1.55;color:#453f33;text-wrap:pretty">Bid on the digits in a dollar bill's serial number. Call the bluff and lay the bills out.</p>
+      <div style="margin-top:12px;font:400 11px var(--font-body);color:#7a6f52">3–6 players</div>
+    </div>
+    <div style="background:linear-gradient(160deg,#f4f0e4,#e2dcca);border-radius:10px;padding:16px 18px 18px;box-shadow:0 6px 16px rgba(0,0,0,.4)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font:500 9px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#7a6f52">Dead hand</div><div style="font-size:16px;color:#231a08">♣</div></div>
+      <h3 style="font-family:'Bodoni Moda',serif;font-weight:500;font-size:23px;color:#1b1a16;margin:6px 0 8px;line-height:1.05">Beat Charlie</h3>
+      <p style="margin:0;font-size:12.5px;line-height:1.55;color:#453f33;text-wrap:pretty">A hand dealt to the middle that never bets or folds. Beat Charlie or leave the pot for the next deal.</p>
+      <div style="margin-top:12px;font:400 11px var(--font-body);color:#7a6f52">2–8 players</div>
+    </div>
+    <div style="background:linear-gradient(160deg,#f4f0e4,#e2dcca);border-radius:10px;padding:16px 18px 18px;box-shadow:0 6px 16px rgba(0,0,0,.4)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font:500 9px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#7a6f52">Pot game</div><div style="font-size:16px;color:#a8332f">♦</div></div>
+      <h3 style="font-family:'Bodoni Moda',serif;font-weight:500;font-size:23px;color:#1b1a16;margin:6px 0 8px;line-height:1.05">In Between</h3>
+      <p style="margin:0;font-size:12.5px;line-height:1.55;color:#453f33;text-wrap:pretty">Bet that the next card falls between the two showing. Hit a post and you pay double.</p>
+      <div style="margin-top:12px;font:400 11px var(--font-body);color:#7a6f52">2–10 players</div>
+    </div>
+    <div style="background:linear-gradient(160deg,#f4f0e4,#e2dcca);border-radius:10px;padding:16px 18px 18px;box-shadow:0 6px 16px rgba(0,0,0,.4)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font:500 9px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#7a6f52">Blind</div><div style="font-size:16px;color:#a8332f">♥</div></div>
+      <h3 style="font-family:'Bodoni Moda',serif;font-weight:500;font-size:23px;color:#1b1a16;margin:6px 0 8px;line-height:1.05">Night Baseball</h3>
+      <p style="margin:0;font-size:12.5px;line-height:1.55;color:#453f33;text-wrap:pretty">Seven cards face down, nobody looks. Turn until you beat the board. Threes and nines wild.</p>
+      <div style="margin-top:12px;display:flex;gap:6px;flex-wrap:wrap"><span style="font:500 10px var(--font-heading);background:#231a08;color:#e8cf7a;border-radius:999px;padding:3px 9px">3s &amp; 9s wild</span></div>
+    </div>
+  </div>
+
+  <div style="margin-top:30px;padding-top:22px;border-top:1px solid rgba(201,162,39,.3);display:flex;gap:34px;align-items:flex-start;flex-wrap:wrap">
+    <div style="min-width:200px">
+      <div style="font:500 10px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#c9a227;margin-bottom:8px">Modifiers</div>
+      <p style="margin:0;font-size:12px;color:rgba(240,236,225,.5);max-width:220px">Called before the deal. Stack onto any game with cards.</p>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;flex:1;min-width:0">
+      <div style="border:1px solid rgba(201,162,39,.45);border-radius:8px;padding:12px 16px;min-width:230px;flex:1">
+        <div style="font:500 14px var(--font-heading);color:#f0ece1;margin-bottom:4px">Low hole wild</div>
+        <p style="margin:0;font-size:12px;line-height:1.5;color:rgba(240,236,225,.6)">Your lowest face-down card is wild, and so is every other card of that rank in your hand.</p>
+      </div>
+      <div style="border:1px solid rgba(201,162,39,.45);border-radius:8px;padding:12px 16px;min-width:230px;flex:1">
+        <div style="font:500 14px var(--font-heading);color:#f0ece1;margin-bottom:4px">Static wild</div>
+        <p style="margin:0;font-size:12px;line-height:1.5;color:rgba(240,236,225,.6)">The dealer names one rank before the first card. It is wild for everyone, all hand, no exceptions.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="dv-opt" id="1c">
+<div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>The deal — card-table metaphor, cut the deck to choose a game</div>
+<div class="dv-card" style="width:520px;background:radial-gradient(120% 90% at 50% -5%,#1a4a33,#0d2519 60%,#08160f);border:12px solid #2a180f;border-radius:20px;padding:28px 30px 34px">
+  <div style="text-align:center">
+    <div style="font:500 10px var(--font-heading);letter-spacing:.22em;text-transform:uppercase;color:#c9a227">covingtoncards.com</div>
+    <h2 style="font-family:'Bodoni Moda',serif;font-weight:400;font-size:30px;color:#f0ece1;margin:8px 0 0">Cut the deck</h2>
+  </div>
+
+  <div style="height:170px;position:relative;margin:22px 0 8px">{{ fan }}</div>
+
+  <div style="min-height:150px;background:linear-gradient(160deg,#f4f0e4,#e0dac6);border-radius:12px;padding:18px 20px 20px;box-shadow:0 10px 26px rgba(0,0,0,.55)">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div style="font:500 9px var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:#7a6f52">{{ pickFamily }}</div>
+      <div style="font-size:17px;color:{{ pickSuitColor }}">{{ pickSuit }}</div>
+    </div>
+    <h3 style="font-family:'Bodoni Moda',serif;font-weight:500;font-size:27px;color:#1b1a16;margin:6px 0 10px;line-height:1.05">{{ pickName }}</h3>
+    <p style="margin:0;font-size:13px;line-height:1.55;color:#453f33;text-wrap:pretty">{{ pickRule }}</p>
+    <div style="margin-top:14px;display:flex;gap:6px;flex-wrap:wrap">{{ pickMods }}</div>
+  </div>
+
+  <div style="display:flex;gap:10px;margin-top:20px">
+    <button onClick="{{ deal }}" style="flex:1;cursor:pointer;font:500 14px var(--font-heading);color:#231a08;background:linear-gradient(#e8cf7a,#c9a227);border:0;border-radius:999px;padding:13px 18px;box-shadow:0 4px 12px rgba(0,0,0,.45)" style-hover="background:linear-gradient(#f2dd97,#d8b132)" style-active="transform:translateY(1px)">Deal me a game</button>
+    <button onClick="{{ roll }}" style="cursor:pointer;font:500 14px var(--font-heading);color:#f0ece1;background:transparent;border:1px solid rgba(201,162,39,.6);border-radius:999px;padding:13px 18px" style-hover="background:rgba(201,162,39,.14)">Roll a modifier</button>
+  </div>
+  <p style="margin:14px 0 0;text-align:center;font-size:11.5px;color:rgba(240,236,225,.45)">{{ modLine }}</p>
+</div>
+</div>
+
+</div>
+<p class="dv-next">Try next: "build out <a class="dv-oid" href="#1a">1a</a> as the real index with a detail page" · "make <a class="dv-oid" href="#1b">1b</a> work on a phone" · "show me a chip-rail navigation instead"</p>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+const GAMES = [
+  {name:"Five-Card Stud",family:"Stud",suit:"\u2660",rule:"One down, four up, a bet on every street. No draw, no community, nowhere to hide.",mods:[]},
+  {name:"Seven-Card Stud",family:"Stud",suit:"\u2663",rule:"Two down, four up, one down. Five betting rounds, best five of your seven.",mods:[]},
+  {name:"Criss Cross",family:"Community",suit:"\u2666",rule:"Five community cards in a cross. Play the row or the column, never the middle twice, plus two of your own.",mods:[]},
+  {name:"Krogering",family:"Stud \u00b7 house game",suit:"\u2660",rule:"Seven-card stud where your lowest down card \u2014 and every card of that rank in your hand \u2014 runs wild.",mods:["Low hole wild"]},
+  {name:"Chase the Queen",family:"Stud",suit:"\u2665",rule:"A queen face up makes the next up card wild for everyone. A fresh queen retires the old one.",mods:["Moving wild"]},
+  {name:"Screw Your Neighbor",family:"Lives",suit:"\u2660",rule:"One card each, three lives apiece. Keep it or trade left. Lowest card loses a life; a king cannot be taken.",mods:[]},
+  {name:"Liar's Poker",family:"No cards",suit:"$",rule:"Bid on the digits in a dollar bill's serial number, each bid beating the last. Call the bluff and lay the bills out.",mods:[]},
+  {name:"Beat Charlie",family:"Dead hand",suit:"\u2663",rule:"A hand dealt face down to the middle that never bets or folds. Beat Charlie or leave the pot for the next deal.",mods:[]},
+  {name:"In Between",family:"Pot game",suit:"\u2666",rule:"Two cards up, then bet on whether the next lands between them. Hit either post and you pay double.",mods:[]},
+  {name:"Night Baseball",family:"Blind",suit:"\u2665",rule:"Seven cards face down, nobody looks. Turn until you beat the board. Threes and nines wild, a four buys a card.",mods:["3s & 9s wild"]}
+];
+const MODS = ["Low hole wild","Static wild \u2014 dealer names the rank","No modifier. Play it straight."];
+
+class Component extends DCLogic {
+  state = { i: 3, mod: null, n: 0 };
+
+  deal = () => {
+    let i = this.state.i;
+    while (i === this.state.i) i = Math.floor(Math.random() * GAMES.length);
+    this.setState(s => ({ i, mod: null, n: s.n + 1 }));
+  };
+  roll = () => {
+    this.setState(s => ({ mod: MODS[Math.floor(Math.random() * MODS.length)], n: s.n + 1 }));
+  };
+
+  renderVals() {
+    const g = GAMES[this.state.i];
+    const fan = React.createElement("div", {
+      key: this.state.n,
+      style: { position: "absolute", inset: 0, display: "flex", justifyContent: "center", alignItems: "flex-start" }
+    }, [-3, -2, -1, 0, 1, 2, 3].map((k, idx) =>
+      React.createElement("div", {
+        key: k,
+        style: {
+          position: "absolute", top: 0, width: 86, height: 124, borderRadius: 8,
+          background: "linear-gradient(150deg,#7d211e,#5a1614)",
+          border: "3px solid #f4f0e4",
+          boxShadow: "0 6px 16px rgba(0,0,0,.5)",
+          transform: "translateX(" + k * 46 + "px) rotate(" + k * 7 + "deg)",
+          transformOrigin: "bottom center",
+          opacity: 0,
+          animation: "dealFade .42s cubic-bezier(.2,.9,.3,1) both",
+          animationDelay: idx * 55 + "ms"
+        }
+      },
+        React.createElement("div", {
+          style: {
+            position: "absolute", inset: 6, borderRadius: 4,
+            border: "1px solid rgba(244,240,228,.35)",
+            backgroundImage: "repeating-linear-gradient(45deg,rgba(244,240,228,.13) 0 4px,transparent 4px 8px)"
+          }
+        })
+      )
+    ));
+    return {
+      fan,
+      deal: this.deal,
+      roll: this.roll,
+      pickName: g.name,
+      pickFamily: g.family,
+      pickSuit: g.suit,
+      pickSuitColor: (g.suit === "\u2665" || g.suit === "\u2666") ? "#a8332f" : "#231a08",
+      pickRule: g.rule,
+      modLine: this.state.mod || "Modifier: dealer's call.",
+      pickMods: g.mods.map((m, i) => React.createElement("span", {
+        key: i,
+        style: { font: "500 10px Inter, sans-serif", background: "#231a08", color: "#e8cf7a", borderRadius: 999, padding: "3px 9px" }
+      }, m))
+    };
+  }
+}
+</script>
+</body>
+</html>
