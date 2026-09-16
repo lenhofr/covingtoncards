@@ -48,11 +48,33 @@ up).
 via `actions/deploy-pages` on every push to `main`. One-time manual step:
 in the repo's Settings → Pages, set **Source** to "GitHub Actions".
 
-The custom domain (`covingtoncards.com`, to be purchased via Route53) isn't
-wired up yet — no `CNAME` file has been added on purpose. When it's ready:
-add a `dist`-published `CNAME` file containing `covingtoncards.com` (or set
-it in the Pages UI, which writes the same file), and point Route53 A/AAAA
-records at GitHub Pages' IPs.
+The build writes `dist/CNAME` (`covingtoncards.com`) itself, since a custom
+Actions workflow — unlike GitHub's built-in Jekyll/Pages build — doesn't
+manage that file automatically.
+
+## DNS (`terraform/`)
+
+`covingtoncards.com` is registered in Route 53. `terraform/` points the
+apex and `www` at GitHub Pages:
+
+- apex → GitHub Pages' fixed A/AAAA records (no ALIAS/ANAME support there)
+- `www` → CNAME to `lenhofr.github.io.`
+
+```
+cd terraform
+terraform init
+terraform apply
+```
+
+Uses the same shared remote-state bucket as the other static sites
+(`tf-state-common-217354297026-us-east-1`, key `covingtoncards/terraform.tfstate`).
+Assumes the hosted zone already exists (Route 53 creates it automatically
+when you register a domain through it) — nothing to import.
+
+**Still manual** (no Terraform resource for it against the GitHub Pages
+API/AWS provider): in the repo's Settings → Pages, set **Custom domain** to
+`covingtoncards.com` and, once DNS has propagated and GitHub issues the
+cert, check **Enforce HTTPS**.
 
 ## Content status
 
