@@ -12,6 +12,10 @@ const OUT_DIR = join(__dirname, 'dist');
 
 const data = JSON.parse(readFileSync(join(SRC_DIR, 'data/games.json'), 'utf8'));
 
+// GitHub Pages reads this file on every deploy to know the custom domain is
+// still wanted; a custom-workflow deploy (ours) has to ship it itself.
+const SITE_DOMAIN = 'covingtoncards.com';
+
 const FONT_LINKS = `<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Inter:wght@400;500&display=swap">`;
 
@@ -218,6 +222,7 @@ mkdirSync(join(OUT_DIR, 'games'), { recursive: true });
 
 writeFileSync(join(OUT_DIR, 'index.html'), renderIndex(data));
 writeFileSync(join(OUT_DIR, '.nojekyll'), '');
+writeFileSync(join(OUT_DIR, 'CNAME'), `${SITE_DOMAIN}\n`);
 cpSync(join(SRC_DIR, 'styles/site.css'), join(OUT_DIR, 'assets/site.css'));
 cpSync(join(SRC_DIR, 'scripts/site.js'), join(OUT_DIR, 'assets/site.js'));
 
