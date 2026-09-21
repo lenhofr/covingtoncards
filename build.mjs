@@ -39,14 +39,19 @@ function esc(value) {
   }[ch]));
 }
 
-function renderHead({ title, description, assetPrefix, bodyClass }) {
+function renderHead({ title, description, assetPrefix, bodyClass, themeColor }) {
   return `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="${themeColor}">
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(description)}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Covington Cards">
+  <meta property="og:title" content="${esc(title)}">
+  <meta property="og:description" content="${esc(description)}">
   ${FAVICON}
   ${FONT_LINKS}
   <link rel="stylesheet" href="${assetPrefix}assets/site.css">
@@ -74,7 +79,7 @@ function renderIndex({ games }) {
       const colorClass = SUIT_BLACK.has(game.family) ? 'suit-black' : 'suit-red';
       const originalClass = game.covingtonOriginal ? ' is-original' : '';
       const titleHtml = game.titleLines.map(esc).join('<br>');
-      return `      <a class="game-card${originalClass}" href="games/${game.slug}/">
+      return `      <a class="game-card${originalClass}" href="games/${game.slug}/" data-name="${esc(game.name)}">
         ${renderCornerIndex(game, colorClass, false)}
         <div class="card-face">
           <h2 class="card-title">${titleHtml}</h2>
@@ -92,15 +97,13 @@ function renderIndex({ games }) {
     description: 'House rules for the ten poker games one Covington, Kentucky home game plays. Pick one when it’s your deal.',
     assetPrefix: '',
     bodyClass: 'page-index',
+    themeColor: '#08160f',
   })}
   <main class="felt-surface">
     <header class="index-header">
       <div class="brand">
         <span class="chip" aria-hidden="true"></span>
-        <div>
-          <p class="kicker">covingtoncards.com</p>
-          <h1 class="wordmark">Covington Cards</h1>
-        </div>
+        <h1 class="wordmark">Covington Cards</h1>
       </div>
       <ul class="suit-key">
         ${renderSuitKeyEntry('9824', 'suit-black', 'Stud')}
@@ -109,7 +112,11 @@ function renderIndex({ games }) {
         ${renderSuitKeyEntry('9827', 'suit-black', 'Table game')}
       </ul>
     </header>
-    <p class="subhead">Pick one when it's your deal. Most of these were invented within a mile of the river.</p>
+    <div class="subhead">
+      <p class="subhead-line">Dealer’s choice. Pick your poison, or let the deck pick for you.</p>
+      <button type="button" class="deal-button" data-deal hidden><span class="deal-glyph" aria-hidden="true">&#9824;</span> <span data-deal-label>Shuffle up &amp; deal</span></button>
+      <p class="visually-hidden" aria-live="polite" data-deal-status></p>
+    </div>
     <div class="card-grid">
 ${cards}
     </div>
@@ -175,13 +182,13 @@ function renderGame(game) {
     description: summary,
     assetPrefix: '../../',
     bodyClass: 'page-game',
+    themeColor: '#123824',
   })}
   <div class="game-shell">
-    <div class="game-topline"><span>covingtoncards.com</span></div>
-    <div class="back-row">
-      <a class="back-button" href="../../" data-back aria-label="Back to all games">&#8249;</a>
+    <a class="back-row" href="../../" data-back>
+      <span class="back-button" aria-hidden="true">&#8249;</span>
       <span class="back-label">All games</span>
-    </div>
+    </a>
 
     <article class="hero-card${originalClass}">
       <div class="hero-top">
@@ -197,11 +204,6 @@ ${renderStatsOrPlayers(game)}
     <section class="rules-section">
 ${renderRules(game)}
     </section>
-
-    <div class="action-bar">
-      <button type="button" class="call-button" disabled aria-disabled="true" title="Undecided — coming soon">Call this game</button>
-      <button type="button" class="fav-button" data-slug="${esc(game.slug)}" aria-pressed="false" aria-label="Favourite ${esc(game.name)}">&#9829;</button>
-    </div>
   </div>
   <script src="../../assets/site.js" defer></script>
 </body>

@@ -1,62 +1,11 @@
 (function () {
   'use strict';
 
-  var FAVOURITES_KEY = 'cc.favourites';
-
-  function readFavourites() {
-    try {
-      var raw = window.localStorage.getItem(FAVOURITES_KEY);
-      var parsed = raw ? JSON.parse(raw) : [];
-      return Array.isArray(parsed) ? parsed : [];
-    } catch (err) {
-      return [];
-    }
-  }
-
-  function writeFavourites(slugs) {
-    try {
-      window.localStorage.setItem(FAVOURITES_KEY, JSON.stringify(slugs));
-    } catch (err) {
-      /* localStorage unavailable (private mode, disabled) — favouriting is best-effort only */
-    }
-  }
-
-  function setPressed(button, isActive) {
-    button.classList.toggle('is-active', isActive);
-    button.setAttribute('aria-pressed', String(isActive));
-  }
-
-  function initFavourite() {
-    var button = document.querySelector('.fav-button[data-slug]');
-    if (!button) return;
-
-    var slug = button.getAttribute('data-slug');
-    var favourites = readFavourites();
-    setPressed(button, favourites.indexOf(slug) !== -1);
-
-    button.addEventListener('click', function () {
-      var current = readFavourites();
-      var index = current.indexOf(slug);
-      var isActive;
-
-      if (index === -1) {
-        current.push(slug);
-        isActive = true;
-      } else {
-        current.splice(index, 1);
-        isActive = false;
-      }
-
-      writeFavourites(current);
-      setPressed(button, isActive);
-    });
-  }
-
   function initBackButton() {
-    var button = document.querySelector('.back-button[data-back]');
-    if (!button) return;
+    var link = document.querySelector('[data-back]');
+    if (!link) return;
 
-    button.addEventListener('click', function (event) {
+    link.addEventListener('click', function (event) {
       var cameFromSite =
         window.history.length > 1 &&
         document.referrer &&
@@ -70,8 +19,37 @@
     });
   }
 
+  // "Shuffle up & deal": pick a random game and spotlight its card.
+  function initDeal() {
+    var button = document.querySelector('[data-deal]');
+    var grid = document.querySelector('.card-grid');
+    if (!button || !grid) return;
+
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.game-card'));
+    var label = button.querySelector('[data-deal-label]');
+    var status = document.querySelector('[data-deal-status]');
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var dealt = null;
+
+    button.hidden = false;
+
+    button.addEventListener('click', function () {
+      var choices = cards.filter(function (card) { return card !== dealt; });
+      var next = choices[Math.floor(Math.random() * choices.length)];
+
+      if (dealt) dealt.classList.remove('is-dealt');
+      next.classList.add('is-dealt');
+      grid.classList.add('has-dealt');
+      dealt = next;
+
+      label.textContent = 'Deal again';
+      status.textContent = 'The deck says ' + next.getAttribute('data-name') + '.';
+      next.scrollIntoView({ block: 'nearest', behavior: reducedMotion ? 'auto' : 'smooth' });
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
-    initFavourite();
     initBackButton();
+    initDeal();
   });
 })();
