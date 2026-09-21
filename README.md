@@ -11,7 +11,7 @@ src/
                        Krogering's full rules detail (the only game with
                        real detail copy so far — see "Content status" below)
   styles/site.css      All styling (felt/leather/brass "card room" theme)
-  scripts/site.js       Favourite-toggle (localStorage) + smart back button
+  scripts/site.js       "Shuffle up & deal" picker + smart back button
 build.mjs               Zero-dependency Node build script -> dist/
 dist/                   Build output (gitignored, generated)
 design_handoff_covington_cards/   Design reference bundle — not build input
@@ -83,6 +83,4 @@ Only **Krogering** has real "deal steps" / stats / house-notes content
 summary plus a "Full house rules ... are coming soon" placeholder in that
 section — see `design_handoff_covington_cards/README.md` → "Open questions
 for the client" for what's still pending (real rule text for all games,
-which games are genuine Covington originals, and what "Call this game"
-should do). "Call this game" is built disabled-but-present until that's
-decided.
+and which games are genuine Covington originals).

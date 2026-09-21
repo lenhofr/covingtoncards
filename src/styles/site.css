@@ -63,6 +63,21 @@ p {
   outline-offset: 3px;
 }
 
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 /* ---------------------------------------------------------------------- */
 /* Index (screen 1, option 2a)                                            */
 /* ---------------------------------------------------------------------- */
@@ -105,16 +120,8 @@ p {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
 
-.kicker {
-  margin: 0;
-  font: 500 10px var(--font-body);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--brass);
-}
-
 .wordmark {
-  margin: 4px 0 0;
+  margin: 0;
   font: 400 34px var(--font-heading);
   color: var(--ivory);
 }
@@ -160,8 +167,41 @@ p {
 
 .subhead {
   margin: 14px 0 26px 50px;
-  font-size: 13px;
-  color: rgba(240, 236, 225, 0.5);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+}
+
+.subhead-line {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(240, 236, 225, 0.7);
+}
+
+.deal-button {
+  min-height: 40px;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(201, 162, 39, 0.6);
+  border-radius: 999px;
+  font: 500 11px var(--font-body);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brass-light);
+  transition: background-color 140ms ease-out;
+}
+
+.deal-button:active {
+  background: rgba(201, 162, 39, 0.24);
+}
+
+.deal-glyph {
+  font-size: 14px;
+  letter-spacing: 0;
+  color: var(--ivory);
 }
 
 .card-grid {
@@ -189,23 +229,53 @@ p {
   border-radius: 12px;
   padding: 12px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
-  transition: transform 160ms ease-out, box-shadow 160ms ease-out;
+  transition: transform 160ms ease-out, box-shadow 160ms ease-out, filter 200ms ease-out;
   transform-origin: bottom center;
+  scroll-margin: 40px;
 }
 
 .game-card.is-original {
   outline: 2px solid var(--brass);
 }
 
-.game-card:hover {
-  transform: translateY(-4px) rotate(-1deg);
-  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.55);
-  cursor: pointer;
+/* Hover lift only where there's a real pointer — on touch screens :hover
+   sticks after a tap and leaves the card tilted when you come back. */
+@media (hover: hover) {
+  .deal-button:hover {
+    background: rgba(201, 162, 39, 0.16);
+  }
+
+  .game-card:hover {
+    transform: translateY(-4px) rotate(-1deg);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.55);
+  }
 }
 
 .game-card:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.98);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+}
+
+/* "Shuffle up & deal" — the picked card turns over, the rest fall back. */
+.card-grid.has-dealt .game-card:not(.is-dealt) {
+  filter: brightness(0.45) saturate(0.7);
+}
+
+.game-card.is-dealt {
+  outline: 3px solid var(--brass-light);
+  outline-offset: 3px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
+  animation: deal-in 480ms cubic-bezier(0.2, 0.8, 0.3, 1.15) both;
+}
+
+@keyframes deal-in {
+  from {
+    transform: perspective(900px) rotateY(-90deg) scale(0.92);
+  }
+
+  to {
+    transform: translateY(-6px) rotate(-1.5deg);
+  }
 }
 
 .card-index {
@@ -282,26 +352,95 @@ p {
 
   .felt-surface {
     border-width: 8px;
-    padding: 20px 16px 28px;
+    padding: 22px 16px 28px;
+  }
+
+  .index-header {
+    gap: 18px;
+  }
+
+  .wordmark {
+    font-size: 32px;
   }
 
   .suit-key {
-    flex-wrap: wrap;
-    gap: 10px 16px;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: start;
+    gap: 10px 22px;
+    font-size: 12.5px;
   }
 
   .subhead {
-    margin-left: 0;
+    margin: 20px 0 22px;
+  }
+
+  .deal-button {
+    min-height: 44px;
+  }
+
+  /* Two cards per row, like a hand laid on the felt. A full-width 5:7 card
+     is ~490px tall on a phone — one game per screen, mostly blank stock. */
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .game-card {
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .card-index {
+    width: 20px;
+  }
+
+  .card-rank {
+    font-size: 21px;
+  }
+
+  .card-index .suit-glyph {
+    font-size: 13px;
+  }
+
+  .card-face {
+    padding: 0 2px;
+  }
+
+  .card-title {
+    font-size: 20px;
+  }
+
+  .card-divider {
+    width: 30px;
+    margin: 10px auto;
+  }
+
+  /* The one-liner lives on the game page; at this size it would overflow the card. */
+  .card-summary {
+    display: none;
+  }
+
+  .card-meta {
+    margin-top: 0;
+    font-size: 8.5px;
+    letter-spacing: 0.12em;
+    line-height: 1.5;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .game-card {
-    transition: box-shadow 140ms ease-out;
+    transition: box-shadow 140ms ease-out, filter 140ms ease-out;
   }
 
-  .game-card:hover {
+  .game-card:hover,
+  .game-card:active {
     transform: none;
+  }
+
+  .game-card.is-dealt {
+    animation: none;
   }
 }
 
@@ -312,24 +451,18 @@ p {
 .page-game {
   background: radial-gradient(120% 80% at 50% 0%, var(--felt-lit), #0d2519 60%, var(--felt-edge));
   min-height: 100vh;
-  padding-bottom: 104px;
+  padding-bottom: 48px;
 }
 
 .game-shell {
-  max-width: 390px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
-.game-topline {
-  padding: 14px 20px 0;
-  display: flex;
-  justify-content: flex-end;
-  font: 500 11px var(--font-body);
-  color: rgba(240, 236, 225, 0.5);
-}
-
+/* The whole row is the link, so the label is part of the tap target too. */
 .back-row {
-  padding: 14px 16px 16px;
+  width: fit-content;
+  padding: 18px 16px 16px;
   display: flex;
   align-items: center;
   gap: 14px;
@@ -349,8 +482,12 @@ p {
   line-height: 1;
 }
 
+.back-row:active .back-button {
+  background: rgba(201, 162, 39, 0.16);
+}
+
 .back-label {
-  font: 500 10px var(--font-body);
+  font: 500 11px var(--font-body);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(240, 236, 225, 0.5);
@@ -393,7 +530,7 @@ p {
 
 .hero-summary {
   margin: 12px 0 0;
-  font-size: 13.5px;
+  font-size: 15px;
   line-height: 1.6;
   color: var(--card-body);
 }
@@ -403,7 +540,7 @@ p {
   padding: 12px 0;
   border-top: 1px solid var(--hairline);
   border-bottom: 1px solid var(--hairline);
-  font-size: 13px;
+  font-size: 15px;
   color: rgba(240, 236, 225, 0.75);
 }
 
@@ -424,7 +561,7 @@ p {
 }
 
 .stat-label {
-  font: 500 9px var(--font-body);
+  font: 500 10px var(--font-body);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: rgba(240, 236, 225, 0.45);
@@ -445,7 +582,7 @@ p {
 
 .section-head {
   margin: 0 0 12px;
-  font: 500 10px var(--font-body);
+  font: 500 11px var(--font-body);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--brass);
@@ -469,14 +606,14 @@ p {
 
 .deal-steps li::before {
   content: counter(deal-step);
-  width: 14px;
+  width: 16px;
   flex: none;
-  font: 400 15px var(--font-heading);
+  font: 400 17px/1.3 var(--font-heading);
   color: var(--brass);
 }
 
 .deal-steps li span {
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.5;
   color: rgba(240, 236, 225, 0.82);
 }
@@ -495,97 +632,15 @@ p {
 
 .house-notes {
   margin: 0;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.55;
   color: rgba(240, 236, 225, 0.7);
 }
 
 .rules-pending {
   margin: 0;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.55;
   font-style: italic;
   color: rgba(240, 236, 225, 0.55);
-}
-
-.action-bar {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 10;
-  padding: 14px 16px 26px;
-  display: flex;
-  gap: 10px;
-  background: linear-gradient(var(--leather), var(--leather-deep));
-  border-top: 1px solid rgba(201, 162, 39, 0.35);
-}
-
-.call-button {
-  flex: 1;
-  height: 48px;
-  border-radius: 999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font: 500 14px var(--font-body);
-  color: var(--ink-on-brass);
-  background: linear-gradient(var(--brass-light), var(--brass));
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
-}
-
-.call-button:hover:not(:disabled) {
-  background: linear-gradient(var(--brass-bright), #d8b132);
-}
-
-.call-button:active:not(:disabled) {
-  transform: translateY(1px);
-}
-
-.call-button:disabled {
-  cursor: not-allowed;
-}
-
-.fav-button {
-  width: 48px;
-  height: 48px;
-  flex: none;
-  border-radius: 999px;
-  border: 1px solid rgba(201, 162, 39, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 17px;
-  color: var(--brass-light);
-}
-
-.fav-button.is-active {
-  background: rgba(201, 162, 39, 0.16);
-  color: var(--brass-bright);
-}
-
-@media (min-width: 760px) {
-  .page-game {
-    padding-bottom: 40px;
-  }
-
-  .game-shell {
-    max-width: 600px;
-  }
-
-  .action-bar {
-    position: static;
-    margin-top: 20px;
-    border-radius: 12px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .call-button {
-    transition: none;
-  }
-
-  .call-button:active:not(:disabled) {
-    transform: none;
-  }
 }
