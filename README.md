@@ -1,15 +1,14 @@
 # covingtoncards
 
-`covingtoncards.com` — house rules for the ten poker games one Covington,
-Kentucky home game plays. A static site, no backend, no accounts.
+`covingtoncards.com` — house rules for the poker games (plus Euchre) one
+Covington, Kentucky home game plays. A static site, no backend, no accounts.
 
 ## Structure
 
 ```
 src/
-  data/games.json     Game content: names, families, summaries, and
-                       Krogering's full rules detail (the only game with
-                       real detail copy so far — see "Content status" below)
+  data/games.json     Game content: names, families, summaries, and each
+                       game's rules detail (see "Content status" below)
   styles/site.css      All styling (felt/leather/brass "card room" theme)
   scripts/site.js       "Shuffle up & deal" picker + smart back button
 build.mjs               Zero-dependency Node build script -> dist/
@@ -78,9 +77,14 @@ cert, check **Enforce HTTPS**.
 
 ## Content status
 
-Only **Krogering** has real "deal steps" / stats / house-notes content
-(`games.json`'s `detail` object). The other nine games render their index
-summary plus a "Full house rules ... are coming soon" placeholder in that
-section — see `design_handoff_covington_cards/README.md` → "Open questions
-for the client" for what's still pending (real rule text for all games,
-and which games are genuine Covington originals).
+Every game now has a `detail` object (stats, deal steps, house notes).
+**Krogering**'s is from the design handoff; the rest are standard rules for
+each game, written to match its index summary. All of it is still draft —
+verify against how the table actually plays and edit `games.json` to match.
+**Beat Charlie** in particular isn't a widely documented game, so its rules
+are a best guess from the summary.
+
+**Euchre** is the one non-poker game: filed under "Table game" (♣) with a
+proposed `J` corner index for the right bower. Games without a `detail`
+object still fall back to a "Full house rules ... are coming soon"
+placeholder.
