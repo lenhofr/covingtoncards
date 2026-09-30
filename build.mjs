@@ -93,8 +93,8 @@ function renderIndex({ games }) {
     .join('\n');
 
   return `${renderHead({
-    title: 'Covington Cards — house poker rules',
-    description: 'House rules for the ten poker games one Covington, Kentucky home game plays. Pick one when it’s your deal.',
+    title: 'Covington Cards — house card game rules',
+    description: 'House rules for the poker games — and a little Euchre — one Covington, Kentucky home game plays. Pick one when it’s your deal.',
     assetPrefix: '',
     bodyClass: 'page-index',
     themeColor: '#08160f',
@@ -135,9 +135,10 @@ function renderStatsOrPlayers(game) {
 
   const cells = detail.stats
     .map((stat) => {
-      const wildClass = stat.label === 'Wild' ? ' stat-wild' : '';
+      // The accented stat (wild card, trump, etc.) gets the wider cell.
+      const wideClass = stat.accent ? ' stat-wild' : '';
       const valueClass = stat.accent ? ' is-accent' : '';
-      return `      <div class="stat-cell${wildClass}">
+      return `      <div class="stat-cell${wideClass}">
         <div class="stat-label">${esc(stat.label)}</div>
         <div class="stat-value${valueClass}">${esc(stat.value)}</div>
       </div>`;

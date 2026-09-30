@@ -1,5 +1,5 @@
 {
-  "_note": "Content used in the mockups. `family` drives the suit glyph, `rank` the corner-index glyph (see README > Screen 1). Rule text is draft copy written during design — verify against the real house rules before shipping. `covingtonOriginal` is a placeholder flag set only on Krogering.",
+  "_note": "Content used in the mockups. `family` drives the suit glyph, `rank` the corner-index glyph (see README > Screen 1). Rule text is draft copy — Krogering from design, the rest standard rules adapted to each game’s summary — verify against the real house rules. `covingtonOriginal` is a placeholder flag set only on Krogering.",
   "families": {
     "stud": {
       "label": "Stud",
@@ -38,7 +38,32 @@
         "Five-Card",
         "Stud"
       ],
-      "cardMeta": "Stud · 2–10"
+      "cardMeta": "Stud · 2–10",
+      "detail": {
+        "stats": [
+          {
+            "label": "Players",
+            "value": "2–10"
+          },
+          {
+            "label": "Bets",
+            "value": "Four"
+          },
+          {
+            "label": "Wild",
+            "value": "None",
+            "accent": true
+          }
+        ],
+        "deal": [
+          "Everyone antes. One card down, one card up.",
+          "High card showing bets first. Bet.",
+          "Third card up. Best board showing acts first. Bet.",
+          "Fourth card up. Bet.",
+          "Fifth card up. Final bet, then turn your hole card. Best five takes it."
+        ],
+        "houseNotes": "Nothing wild, nothing to draw — just your hole card and your nerve. If two boards tie for the lead, the player nearest the dealer’s left acts first. Fold face down; nobody’s owed a look at your hole card."
+      }
     },
     {
       "slug": "seven-card-stud",
@@ -55,7 +80,31 @@
         "Seven-Card",
         "Stud"
       ],
-      "cardMeta": "Stud · 2–8"
+      "cardMeta": "Stud · 2–8",
+      "detail": {
+        "stats": [
+          {
+            "label": "Players",
+            "value": "2–8"
+          },
+          {
+            "label": "Bets",
+            "value": "Five"
+          },
+          {
+            "label": "Wild",
+            "value": "None",
+            "accent": true
+          }
+        ],
+        "deal": [
+          "Everyone antes. Two down, one up. Low card showing brings it in. Bet.",
+          "Fourth, fifth and sixth cards come up, a bet after each. High board acts first.",
+          "Seventh card down. Final bet.",
+          "Best five of your seven takes it."
+        ],
+        "houseNotes": "With eight in, the deck can run dry before the last card. If there aren’t enough to go around on seventh street, the dealer turns one card face up in the middle and everyone plays it."
+      }
     },
     {
       "slug": "criss-cross",
@@ -72,7 +121,33 @@
         "Criss",
         "Cross"
       ],
-      "cardMeta": "Community · 3–7"
+      "cardMeta": "Community · 3–7",
+      "detail": {
+        "stats": [
+          {
+            "label": "Players",
+            "value": "3–7"
+          },
+          {
+            "label": "Bets",
+            "value": "Four"
+          },
+          {
+            "label": "Play",
+            "value": "Row or column",
+            "accent": true
+          }
+        ],
+        "deal": [
+          "Everyone antes. Four cards down to each player. Bet.",
+          "Five cards face down in the middle in a cross: a row of three and a column of three, sharing the center card.",
+          "Turn the two ends of the row. Bet.",
+          "Turn the two ends of the column. Bet.",
+          "Turn the middle last. Final bet.",
+          "Make your best five from your four cards plus the row or the column — one line, not both."
+        ],
+        "houseNotes": "The middle card sits in both lines, but you only get one line, so you can’t count the middle twice by mixing a row card with a column card. Some nights the middle — and every card of its rank — plays wild; the dealer says so before the first card goes out."
+      }
     },
     {
       "slug": "krogering",
@@ -131,7 +206,32 @@
         "Chase the",
         "Queen"
       ],
-      "cardMeta": "Stud · 3–8"
+      "cardMeta": "Stud · 3–8",
+      "detail": {
+        "stats": [
+          {
+            "label": "Players",
+            "value": "3–8"
+          },
+          {
+            "label": "Bets",
+            "value": "Five"
+          },
+          {
+            "label": "Wild",
+            "value": "Q + next",
+            "accent": true
+          }
+        ],
+        "deal": [
+          "Everyone antes. Two down, one up. Bet.",
+          "Three more up, a bet after each.",
+          "When a queen falls face up, the next card dealt face up — to anyone — is wild, along with every card of its rank.",
+          "Another queen face up retires the old wild, and the chase starts over. A queen on the last up card means only queens are wild.",
+          "Seventh card down. It can’t start a chase. Final bet, best five of seven."
+        ],
+        "houseNotes": "Queens are wild all hand long — they just also point at the next wild. Only face-up cards count for the chase; a queen in the hole points at nothing."
+      }
     },
     {
       "slug": "screw-your-neighbor",
@@ -148,7 +248,33 @@
         "Screw Your",
         "Neighbor"
       ],
-      "cardMeta": "Table game · 4–9"
+      "cardMeta": "Table game · 4–9",
+      "detail": {
+        "stats": [
+          {
+            "label": "Players",
+            "value": "4–9"
+          },
+          {
+            "label": "Lives",
+            "value": "Three"
+          },
+          {
+            "label": "Safe",
+            "value": "King",
+            "accent": true
+          }
+        ],
+        "deal": [
+          "Everyone puts three chips — three lives — in front of them, and one in the pot. One card each, face down. Aces are low.",
+          "Left of the dealer goes first: keep your card, or trade it blind with the player on your left.",
+          "Holding a king? Turn it face up. Nobody can take it, and whoever tried to trade with you has to keep what they’ve got.",
+          "The dealer goes last and can trade with the top of the deck instead. Cut a king and you’re stuck with your own card.",
+          "Everyone flips. Lowest card loses a life; ties for low all lose one.",
+          "Out of chips, you’re out. Last player with a life takes the pot."
+        ],
+        "houseNotes": "The deal passes left every hand. You can’t refuse a trade — if the player on your right wants your card, it’s theirs. Talking the player on your right out of trading with you is allowed and encouraged."
+      }
     },
     {
       "slug": "liars-poker",
@@ -165,7 +291,32 @@
         "Liar's",
         "Poker"
       ],
-      "cardMeta": "Table game · 3–6"
+      "cardMeta": "Table game · 3–6",
+      "detail": {
+        "stats": [
+          {
+            "label": "Players",
+            "value": "3–6"
+          },
+          {
+            "label": "Deck",
+            "value": "Dollar bills"
+          },
+          {
+            "label": "High",
+            "value": "Ones",
+            "accent": true
+          }
+        ],
+        "deal": [
+          "Everyone pulls a bill from their own pocket and keeps the serial number hidden.",
+          "The first bidder names a count and a digit across every bill at the table — “three sixes.”",
+          "Each bid has to beat the last: more of any digit, or the same count of a higher digit. Ones are high, then zeros, then nines down to twos.",
+          "Instead of raising, you can challenge. Once everyone else has challenged, lay the bills face up and count.",
+          "Bid made: the bidder collects a dollar from each challenger. Bid short: the bidder pays each of them."
+        ],
+        "houseNotes": "Play the bill you pulled — no swapping for a better one. The bidder counts their own bill too. Winner of the round bids first on the next one."
+      }
     },
     {
       "slug": "beat-charlie",
@@ -182,7 +333,32 @@
         "Beat",
         "Charlie"
       ],
-      "cardMeta": "Table game · 2–8"
+      "cardMeta": "Table game · 2–8",
+      "detail": {
+        "stats": [
+          {
+            "label": "Players",
+            "value": "2–8"
+          },
+          {
+            "label": "Draw",
+            "value": "Up to 3"
+          },
+          {
+            "label": "Ties",
+            "value": "Charlie",
+            "accent": true
+          }
+        ],
+        "deal": [
+          "Everyone antes. Five cards down to each player, and five face down to Charlie in the middle.",
+          "Bet. Then draw up to three. Charlie stands pat on whatever he was dealt.",
+          "Second bet. Folding still gets you out of it.",
+          "Show down, then flip Charlie. The best hand at the table has to beat him to take the pot.",
+          "If Charlie wins, nobody gets paid: the pot rides, everyone antes again, and the next deal plays for all of it."
+        ],
+        "houseNotes": "Ties go to Charlie. Charlie doesn’t ante, doesn’t fold, doesn’t bluff, and has never once bought a round."
+      }
     },
     {
       "slug": "in-between",
@@ -199,7 +375,33 @@
         "In",
         "Between"
       ],
-      "cardMeta": "Down to luck · 2–10"
+      "cardMeta": "Down to luck · 2–10",
+      "detail": {
+        "stats": [
+          {
+            "label": "Players",
+            "value": "2–10"
+          },
+          {
+            "label": "Max bet",
+            "value": "The pot"
+          },
+          {
+            "label": "Post",
+            "value": "Pay double",
+            "accent": true
+          }
+        ],
+        "deal": [
+          "Everyone antes into the pot.",
+          "On your turn, the dealer turns two cards face up — the posts.",
+          "Bet anything from one chip up to the whole pot that the next card falls strictly between them.",
+          "In between: take your bet out of the pot. Outside: pay your bet in. Hit a post: pay double.",
+          "Posts that are a pair or back to back leave no room — take a fresh pair, or pass.",
+          "Play goes around the table until the pot is empty. Then everyone antes again."
+        ],
+        "houseNotes": "An ace on the first post is yours to call high or low before the second card turns; an ace on the second post is always high. Nobody bets the whole pot on the first lap around the table."
+      }
     },
     {
       "slug": "night-baseball",
@@ -216,7 +418,76 @@
         "Night",
         "Baseball"
       ],
-      "cardMeta": "Down to luck · 2–8"
+      "cardMeta": "Down to luck · 2–8",
+      "detail": {
+        "stats": [
+          {
+            "label": "Players",
+            "value": "2–8"
+          },
+          {
+            "label": "Four",
+            "value": "Buys one"
+          },
+          {
+            "label": "Wild",
+            "value": "3s & 9s",
+            "accent": true
+          }
+        ],
+        "deal": [
+          "Everyone antes. Seven cards face down to each player. Nobody looks — stack them and leave them.",
+          "Left of the dealer turns one card. Bet.",
+          "The next player turns cards one at a time until what they’re showing beats the best hand on the table, then bet.",
+          "Run out of cards without beating it and you’re done for the hand.",
+          "Threes and nines are wild. Turn a four and the dealer deals you an extra face-down card to flip later.",
+          "Keep going around until nobody can beat the hand showing. Best five face-up cards wins."
+        ],
+        "houseNotes": "Every beat is judged on what’s face up, wilds included. Turn one card at a time and no peeking at your stack — you find out when the table does."
+      }
+    },
+    {
+      "slug": "euchre",
+      "name": "Euchre",
+      "family": "table",
+      "familyLabel": "Table game · trick-taking",
+      "players": "4 players, two teams",
+      "summary": "Twenty-four cards, two teams, five tricks. Call trump, take three, and mind the jacks.",
+      "covingtonOriginal": false,
+      "detail": {
+        "summary": "Partners sit across, the deck runs nine through ace, and the jack of trump outranks everything. Call trump, take three of five tricks, and don’t get euchred.",
+        "stats": [
+          {
+            "label": "Players",
+            "value": "4"
+          },
+          {
+            "label": "Game",
+            "value": "10 pts"
+          },
+          {
+            "label": "Top card",
+            "value": "Right bower",
+            "accent": true
+          }
+        ],
+        "deal": [
+          "Pull the nines through aces — 24 cards. Partners sit across from each other. Five cards each, dealt in threes and twos, and turn the next card face up on the kitty.",
+          "Starting left of the dealer, each player either orders it up — making that suit trump — or passes. Once it’s ordered, the dealer picks it up and discards one.",
+          "All four pass? Turn it down. Go around again: anyone can name a different suit as trump, or pass. If it gets back to the dealer, the dealer is stuck and has to call.",
+          "Trump ranks: the jack of trump (right bower), the other jack of the same color (left bower), then ace, king, queen, ten, nine. The left bower is trump, not its printed suit.",
+          "Left of the dealer leads. Follow suit if you can; if you can’t, trump it or throw off. Highest trump wins the trick, otherwise the high card of the suit led. The winner leads next.",
+          "The team that called trump takes three or four tricks: 1 point. All five: 2 points. Fewer than three and they’re euchred — the other team scores 2. First team to 10 wins."
+        ],
+        "houseNotes": "Whoever calls trump can go alone: their partner lays their hand down and sits out. Take all five tricks alone and it’s worth 4 points; three or four is still 1. The deal passes left each hand. Keep score with the spare fives and sixes."
+      },
+      "rank": null,
+      "rankProposed": "J",
+      "rankReason": "the right bower — jack of trump",
+      "titleLines": [
+        "Euchre"
+      ],
+      "cardMeta": "Table game · 4"
     }
   ],
   "_rankNote": "Only five-card-stud (5) and chase-the-queen (Q) have a client-confirmed rank. `rankProposed` values are designer suggestions with the reason given — confirm or replace before build. Render `rank || rankProposed`; if both are null, show the suit glyph alone."
