@@ -68,6 +68,11 @@ button {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Classes that set display (e.g. .deal-button) would otherwise beat [hidden]. */
+[hidden] {
+  display: none !important;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -196,6 +201,18 @@ button {
 
 .deal-button:active {
   background: rgba(201, 162, 39, 0.24);
+}
+
+.deal-clear {
+  min-height: 40px;
+  padding: 0 4px;
+  font: 500 11px var(--font-body);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(240, 236, 225, 0.7);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(240, 236, 225, 0.35);
 }
 
 .deal-glyph {
@@ -375,7 +392,8 @@ button {
     margin: 20px 0 22px;
   }
 
-  .deal-button {
+  .deal-button,
+  .deal-clear {
     min-height: 44px;
   }
 
