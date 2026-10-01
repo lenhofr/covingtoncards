@@ -1,6 +1,6 @@
 # covingtoncards
 
-`covingtoncards.com` — house rules for the poker games (plus Euchre) one
+`covingtoncards.com`: house rules for the poker games (plus Euchre) one
 Covington, Kentucky home game plays. A static site, no backend, no accounts.
 
 ## Structure
@@ -13,7 +13,7 @@ src/
   scripts/site.js       "Shuffle up & deal" picker + smart back button
 build.mjs               Zero-dependency Node build script -> dist/
 dist/                   Build output (gitignored, generated)
-design_handoff_covington_cards/   Design reference bundle — not build input
+design_handoff_covington_cards/   Design reference bundle, not build input
 ```
 
 Design source of truth: `design_handoff_covington_cards/README.md`
@@ -28,7 +28,7 @@ node build.mjs
 
 Reads `src/data/games.json`, renders `dist/index.html` plus one
 `dist/games/<slug>/index.html` per game, and copies `assets/`. No
-dependencies, no npm install required — Node 20+ only.
+dependencies, no npm install required. Node 20+ only.
 
 ## Local preview
 
@@ -48,7 +48,7 @@ via `actions/deploy-pages` on every push to `main`. One-time manual step:
 in the repo's Settings → Pages, set **Source** to "GitHub Actions".
 
 The build writes `dist/CNAME` (`covingtoncards.com`) itself, since a custom
-Actions workflow — unlike GitHub's built-in Jekyll/Pages build — doesn't
+Actions workflow (unlike GitHub's built-in Jekyll/Pages build) doesn't
 manage that file automatically.
 
 ## DNS (`terraform/`)
@@ -68,7 +68,7 @@ terraform apply
 Uses the same shared remote-state bucket as the other static sites
 (`tf-state-common-217354297026-us-east-1`, key `covingtoncards/terraform.tfstate`).
 Assumes the hosted zone already exists (Route 53 creates it automatically
-when you register a domain through it) — nothing to import.
+when you register a domain through it), so there's nothing to import.
 
 **Still manual** (no Terraform resource for it against the GitHub Pages
 API/AWS provider): in the repo's Settings → Pages, set **Custom domain** to
@@ -79,7 +79,7 @@ cert, check **Enforce HTTPS**.
 
 Every game now has a `detail` object (stats, deal steps, house notes).
 **Krogering**'s is from the design handoff; the rest are standard rules for
-each game, written to match its index summary. All of it is still draft —
+each game, written to match its index summary. All of it is still draft, so
 verify against how the table actually plays and edit `games.json` to match.
 **Beat Charlie** in particular isn't a widely documented game, so its rules
 are a best guess from the summary.

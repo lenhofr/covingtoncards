@@ -93,8 +93,8 @@ function renderIndex({ games }) {
     .join('\n');
 
   return `${renderHead({
-    title: 'Covington Cards — house card game rules',
-    description: 'House rules for the poker games — and a little Euchre — one Covington, Kentucky home game plays. Pick one when it’s your deal.',
+    title: 'Covington Cards | House rules',
+    description: 'House rules for the poker games (and Euchre) we play at a home game in Covington, Kentucky.',
     assetPrefix: '',
     bodyClass: 'page-index',
     themeColor: '#08160f',
@@ -113,7 +113,7 @@ function renderIndex({ games }) {
       </ul>
     </header>
     <div class="subhead">
-      <p class="subhead-line">Dealer’s choice. Pick your poison, or let the deck pick for you.</p>
+      <p class="subhead-line">Dealer's choice. Pick a game or let the deck pick one for you.</p>
       <button type="button" class="deal-button" data-deal hidden><span class="deal-glyph" aria-hidden="true">&#9824;</span> <span data-deal-label>Shuffle up &amp; deal</span></button>
       <p class="visually-hidden" aria-live="polite" data-deal-status></p>
     </div>
@@ -179,7 +179,7 @@ function renderGame(game) {
     : '';
 
   return `${renderHead({
-    title: `${game.name} — Covington Cards`,
+    title: `${game.name} | Covington Cards`,
     description: summary,
     assetPrefix: '../../',
     bodyClass: 'page-game',
